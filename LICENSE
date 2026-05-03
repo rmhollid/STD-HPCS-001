@@ -1,21 +1,11 @@
-MIT License
+PolyForm Noncommercial License 1.0.0
 
-Copyright (c) 2026 Robert Holliday
+SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+License URL: https://polyformproject.org/licenses/noncommercial/1.0.0
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Project licensing intent:
+- Noncommercial use is permitted under PolyForm Noncommercial License 1.0.0.
+- Commercial use, sale, paid hosting, resale, commercial integration, or other money-making use requires separate written permission from the copyright holder.
+- Prior copies that were already distributed under MIT may remain governed by the MIT terms that accompanied those prior copies; this file applies to this repository going forward.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Required Notice: Copyright (c) 2026 Robert Holliday. All rights reserved except as expressly granted by PolyForm Noncommercial License 1.0.0 or separate written permission.
