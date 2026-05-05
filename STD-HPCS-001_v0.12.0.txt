@@ -1,0 +1,2141 @@
+# 1. DOCUMENT_METADATA
+NAME: "HIGH_PRESSURE_HIGH_TEMPERATURE_CHIRAL_SOLID_STATE_EMBEDDED_SENSOR"
+CATEGORY: "MATERIAL_SCIENCE_CONSTRUCTION_OPERATION_STANDARD"
+IDENTIFIER: "STD-HPCS-001"
+VERSION: "0.12.0"
+STATUS: "REVIEW"
+AUTHORITATIVE_BODY: "INDEPENDENT_STSF_RECONSTRUCTION"
+AUTHOR: "Robert Michael Holliday"
+LAST_UPDATED: "2026-05-03"
+COMPATIBILITY: "STSF==7.8.17"
+
+# 2. PURPOSE_SCOPE
+This document defines a high-pressure, high-temperature, solid-state embedded material element that carries environmental state through Raman-active, ferroaxial, axial-domain, or chiral optical response.
+
+The active scope is limited to:
+- theory: how a rugged ordered material can carry pressure, temperature, strain, damage, and domain state as an optical response;
+- construction: the material stack, protective matrix, active inclusion, infrared optical path, calibration structure, and readout channel;
+- operation: how an embedded element is interrogated and how its infrared, Raman, polarization, or thermal optical response is converted into state information.
+
+Infrared-laser operation is an explicit branch of this standard. It covers near-infrared and infrared excitation, fiber delivery, standoff delivery, window-coupled delivery, Raman peak-shift sensing, Stokes/anti-Stokes temperature sensing, polarization-channel readout, and absorption-style process-state readout.
+
+Solid-state heat-extraction operation is an explicit branch of this standard. It covers passive solid-state heat extraction, phonon-polariton heat highways, thermal-infrared radiative dumping, thermophotonic-assisted heat pumping, and chiral or ferroaxial heat-path readout. Heat extraction claims shall identify the heat source, transport carrier, heat sink, gradient or work input, loss path, and saturation behavior.
+
+Field-assisted heat-transport operation is an explicit branch of this standard. It covers radio-frequency telemetry and modulation, microwave magnetic or dielectric control, magnon-assisted thermal-state transport, near-field electromagnetic heat transfer, thermophotovoltaic receiver conversion, time-modulated photonic heat pumping, and fluctuation-mediated quantum thermal channels. Field-assisted claims shall identify the field band, coupled carrier, mode class, active or passive status, heat source, protected region, heat sink, work input when required, loss budget, saturation behavior, survivability limit, and measured protected-zone temperature reduction against the unmodified host baseline.
+
+Internal-lasing operation is an optional explicit branch of this standard. It covers embedded Raman-laser conversion, random-laser composite emission, rare-earth ceramic microcavity emission, semiconductor or quantum-well gain layers, phonon-polariton coherent-emitter candidates, and thermal-threshold optical beacons. Internal lasing claims shall identify gain medium, pump path, feedback mechanism, threshold condition, output path, residual-heat dump, loss budget, and survivability limits.
+
+Truth classification is an explicit branch-governance layer of this standard. Each physics branch, construction claim, operating mode, material candidate, and deployment claim shall carry a truth class, material-readiness tag, and operating-regime tag. These labels separate supported physics from engineering rules, candidate device branches, theory-only branches, material-qualification requirements, and rejection gates.
+
+This document does not define an actuator, propulsion component, biological sensor, chemical detector, or electronic transistor. It may define an embedded heat-extraction, heat-transport, or internal optical-emission element only when the transport carrier, sink, gain subsystem, and operating envelope are explicit. The primary device class remains an embedded optical witness and thermal-state material.
+
+# 3. DEFINITIONS
+Active inclusion: the material grain, film, crystal island, ceramic phase, or fiber-tip coating that produces the measurable optical response.
+
+Axial-domain order: a signed structural domain state represented by an axial-vector orientation or equivalent signed rotational state.
+
+Chiral optical response: difference in optical response between opposite handed or circular polarization channels.
+
+Embedded optical witness: a solid-state material element placed inside or on a host component so that later optical interrogation reveals the local environmental state or exposure history.
+
+Ferroaxial material: material with a structural axial-vector order parameter. Ferroaxial order may support signed optical response but shall not be treated as structural chirality by itself.
+
+Harsh environment: operating condition involving elevated temperature, elevated pressure, high strain, cyclic stress, corrosive adjacency, radiation adjacency, or restricted access after installation.
+
+Host component: the structural body that contains or supports the active inclusion.
+
+Optical readout path: laser, fiber, window, waveguide, or free-space path used to interrogate the active inclusion.
+
+Pressure coefficient: change in mode frequency per unit pressure for a calibrated Raman or optical mode.
+
+Raman marker mode: spectrally resolvable vibrational mode used as a readout channel.
+
+Raman optical activity channel: polarization-sensitive Raman channel that can report signed domain response or helicity contrast.
+
+State vector X_env: bounded environmental and material state inferred from the measured optical response.
+
+Thermal survival limit T_surv: highest temperature at which the active inclusion remains chemically, structurally, and optically usable after exposure.
+
+Operating temperature T_op: temperature at the active inclusion during interrogation or during exposure.
+
+Operating pressure P_op: pressure or equivalent compressive stress at the active inclusion.
+
+Calibration curve: deterministic mapping between measured optical features and environmental state variables within a qualified operating envelope.
+
+Infrared excitation lane: selected excitation wavelength family used for readout, including 785 nm, 830 nm, 980 nm, 1064 nm, 1310 nm, 1550 nm, or mid-infrared bands when qualified.
+
+IR laser readout: optical interrogation mode in which a near-infrared or infrared laser is used to excite a Raman, absorption, reflection, polarization, or thermal optical response from the embedded active inclusion.
+
+Raman efficiency tradeoff: wavelength-selection rule that shorter excitation wavelengths generally improve Raman scattering strength while longer wavelengths generally reduce fluorescence background and may improve fiber/process compatibility.
+
+Stokes/anti-Stokes temperature ratio: Raman temperature-readout method that estimates temperature from the relative intensity of thermally populated anti-Stokes scattering and Stokes scattering.
+
+Fiber delivery path: optical route that delivers excitation light and collects return signal through silica, specialty, or sapphire-compatible fiber or fiber-adjacent optics.
+
+Sapphire optical path: high-temperature optical window, fiber, or substrate lane based on sapphire or related wide-energy-band optical material.
+
+Witness mode: readout mode that may record exposure history even when the environment is later removed.
+
+Heat extraction path: a designed solid-state route by which thermal energy moves from a hot region toward a colder sink, radiator, converter, or actively driven pump stage.
+
+Thermal pickup layer: material region thermally coupled to the hot zone and selected to couple lattice heat, infrared emission, or phonon energy into the transport carrier.
+
+Heat sink: colder body, radiator, coolant interface, thermophotovoltaic converter, sacrificial thermal mass, or driven pump dump region that accepts extracted heat.
+
+Phonon-polariton: coupled infrared electromagnetic and lattice-vibration mode supported by a polar material.
+
+Heat transport carrier: named carrier responsible for thermal-energy movement, including phonon conduction, coherent phonon packets, surface phonon-polaritons, hyperbolic phonon-polaritons, infrared waveguide modes, or radiative photons.
+
+Thermal-infrared radiative dump: branch in which heat is converted to infrared radiation and directed toward a sink, radiator, converter, or optical escape path.
+
+Thermophotonic assisted heat pump: branch in which external work or a driven photonic/electronic stage assists heat transfer against, or beyond, passive thermal flow.
+
+Passive solid-state heat extraction: heat movement from a hotter embedded region to a colder region through solid conduction, phonon-polariton transport, or radiative transfer without a work-driven pump.
+
+Spectral heat-extraction mode: operating mode selected by electromagnetic band, coupling mechanism, transport carrier, loss model, and sink interface.
+
+Heat-path readout: optical, Raman, polarization, thermal, or reference-channel measurement used to verify that the heat-extraction path is intact and operating within envelope.
+
+Radio-frequency control field: low-frequency or radio-frequency electromagnetic field used for telemetry, modulation, inductive coupling, or state interrogation rather than primary heat extraction.
+
+Microwave control field: electromagnetic field in the microwave band used for dielectric calibration, magnetic resonance control, magnon excitation, or thermal-valve operation.
+
+Magnon: collective spin-wave excitation that can carry spin and thermal information in qualified magnetic materials.
+
+Spin-caloritronic layer: material layer that couples thermal gradients, spin currents, magnetic order, or electrical readout.
+
+Near-field electromagnetic heat transfer: heat transfer mediated by evanescent electromagnetic modes across a sub-wavelength spacing or closely coupled interface.
+
+Evanescent thermal channel: non-propagating electromagnetic field component that can transfer thermal energy between nearby bodies when geometry and material response support coupling.
+
+Fluctuation-mediated quantum thermal channel: thermal transport channel described by fluctuational electrodynamics, in which thermal and quantum electromagnetic fluctuations couple heat between material bodies.
+
+Thermophotovoltaic receiver: converter layer that receives thermal photons and converts part of the received energy into electrical output while dumping residual heat.
+
+Time-modulated photonic heat pump: active heat-control branch in which an externally driven time-varying optical or electromagnetic property changes radiative heat flow.
+
+Casimir-adjacent spacing constraint: mechanical spacing constraint relevant to near-field spacings where surface forces, vibration, contamination, or contact collapse can alter thermal coupling.
+
+Field-assisted heat transport: use of radio, microwave, electromagnetic, magnonic, photonic, or fluctuation-mediated channels to control, read, enhance, suppress, or pump heat flow.
+
+Protected thermal region: host region whose temperature, heat flux, or survivability margin is the target of heat removal.
+
+Unmodified host baseline: measured or bounded heat-flow and protected-region temperature behavior of the same host geometry without the HPCS transport, extraction, or field-assisted layer.
+
+Protected-zone cooling metric: difference between protected-region temperature or heat flux in the unmodified baseline and the same quantity with the HPCS heat path active.
+
+Exported heat q_exported: heat delivered to a sink, radiator, converter, coolant interface, or pump dump outside the protected thermal region.
+
+Internal parasitic heat q_parasitic_internal: heat added inside the protected thermal region by field absorption, dielectric loss, magnetic loss, optical absorption, contact loss, or local control hardware.
+
+External parasitic heat q_parasitic_external: heat generated outside the protected thermal region by drive electronics, sources, detectors, conversion losses, or pump support hardware.
+
+Truth class: normative label assigning a statement or branch to one of SUPPORTED_PHYSICS, ENGINEERING_STANDARD_RULE, CANDIDATE_DEVICE_BRANCH, THEORY_ONLY_BRANCH, REQUIRES_MATERIAL_QUALIFICATION, or REJECT_IF_UNPROVEN.
+
+SUPPORTED_PHYSICS: branch or mechanism with established scientific basis outside this project, while still requiring project-specific geometry and material qualification before deployment.
+
+ENGINEERING_STANDARD_RULE: rule created by this document to prevent overclaim, enforce accounting, define interfaces, or qualify operation.
+
+CANDIDATE_DEVICE_BRANCH: physically plausible construction branch not yet qualified as a deployment device in this project.
+
+THEORY_ONLY_BRANCH: branch carried only as a theoretical or modeling path until experimental or construction proof is supplied.
+
+REQUIRES_MATERIAL_QUALIFICATION: branch or material family that cannot be promoted by name and must pass the material screening, operating-regime, and validation gates in this document.
+
+REJECT_IF_UNPROVEN: label for claims that shall fail conformance unless the required proof vector is supplied.
+
+Material-readiness tag: label assigning a material or construction to PROVEN_BASIS, CANDIDATE, or DEPLOYMENT_QUALIFIED.
+
+PROVEN_BASIS: material or mechanism has an established external scientific basis, but this tag does not by itself qualify harsh embedded deployment.
+
+CANDIDATE: material or construction may be screened for this standard but has not passed all deployment gates.
+
+DEPLOYMENT_QUALIFIED: material or construction has passed the declared survivability, compatibility, transport, calibration, cycling, and safety gates for the declared use envelope.
+
+Operating-regime tag: label assigning the declared operating envelope to ROOM_TEMP, CRYOGENIC, HIGH_TEMP_CANDIDATE, PRESSURE_CANDIDATE, or DEPLOYMENT_QUALIFIED.
+
+Field mode class: classification of a field-assisted mode as SUPPORT_CONTROL, PASSIVE_TRANSPORT, CONVERSION, ACTIVE_CONTROL, ACTIVE_PUMP_CANDIDATE, or ACTIVE_PUMP.
+
+Residual heat dump: declared path by which unconverted heat from a thermophotovoltaic receiver, converter, or pump stage is rejected away from the protected thermal region.
+
+Magnonic stability margin: temperature, pressure, and field-distance margin between the operating point and collapse or unacceptable drift of the magnetic phase needed for magnon-assisted operation.
+
+Modulation law: declared time dependence of a driven photonic, electromagnetic, thermal, or material property used by an active heat-control or active-pump branch.
+
+Control volume CV_protected: explicitly bounded thermal region around the protected hot zone used for heat-balance accounting. It shall define boundary surface A_boundary, volume V_protected, measurement points, and averaging interval.
+
+Control-volume boundary heat q_boundary: heat crossing the boundary of CV_protected, signed positive when leaving the protected region.
+
+Transient storage term dU_dt: time rate of internal-energy storage inside CV_protected. During transient operation, apparent cooling shall not be accepted unless dU_dt is measured, bounded, or driven toward steady-state acceptance.
+
+Steady-state acceptance window: interval during which protected-zone temperature, source load, sink state, field input, and stored-energy term remain within declared bounds.
+
+Baseline equivalence rule: requirement that the unmodified host baseline and active HPCS trial use equivalent geometry, boundary conditions, heat load, sink condition, ambient condition, pressure state, strain state, measurement locations, and time window.
+
+COP_protected: coefficient of performance based on heat removed from CV_protected after internal parasitic heating is deducted.
+
+COP_device: coefficient of performance based on exported heat at the external sink or dump after internal and external parasitic heating are counted.
+
+Readout parasitic heat: heat deposited by measurement light, RF, microwave, detector-adjacent hardware, pump leakage, or reference-channel operation. It shall be assigned as q_readout_internal or q_readout_external according to where it is deposited.
+
+Near-field spacing margin M_nf: formal margin between qualified spacing d_spacing and the declared upper near-field spacing limit d_nf_max.
+
+Material heat-extraction screening vector: declared material screen including survivability, thermal conductivity, infrared phonon band, emissivity, polariton support, pressure stability, chemical compatibility, and readout compatibility.
+
+Heat term unit convention: every q_* heat-flow term is expressed in watts W unless explicitly typed otherwise; stored energy U and q_stored are expressed in joules J; dU_dt is expressed in watts W; COP_protected, COP_device, eta_heat_passive, heat_burden_coverage, and all eta_* ratios are dimensionless.
+
+Storage release debit q_storage_release: positive heat-flow debit equal to max(-dU_dt,0) used when stored energy inside CV_protected is being released and could otherwise be mistaken for sustained heat extraction.
+
+Sustained protected net heat removal q_net_protected_sustained: time-averaged protected-zone net heat removal accepted only after storage accumulation, storage release, internal parasitic heat, and readout heat are debited across the steady-state acceptance window.
+
+Heat burden coverage: dimensionless ratio heat_burden_coverage = q_net_protected_sustained / q_source used to state what fraction of the protected heat source is actually handled by the HPCS path.
+
+Passive heat-transfer efficiency eta_heat_passive: dimensionless passive export ratio q_exported / q_source for gradient-driven heat extraction only. It shall not be used as a substitute for COP in active heat-pump claims.
+
+Worst-case near-field spacing d_spacing_worst: maximum effective spacing across tolerance, roughness, vibration, thermal expansion, pressure deformation, contamination, and service drift.
+
+Worst-case near-field margin M_nf_worst: margin M_nf_worst = d_nf_max - d_spacing_worst. Noncontact near-field operation requires M_nf_worst > 0.
+
+Modulation stability bound: bounded range for a time-modulated property, including modulation amplitude A_mod, modulation frequency f_mod, duty cycle D_mod, drive heat deposition q_drive_heat, and rejection condition for runaway heating or self-heating.
+
+Exported thermal state vector: interface record containing protected-zone temperature, heat flux, heat burden coverage, saturation state, storage state, and survivability margin for consumers such as STD-SPSA, STD-DRIVE, STD-HULL, or STD-SHIP.
+
+Exported heat-path state vector: interface record containing carrier identity, path integrity, attenuation, sink state, baseline equivalence status, and rejection state.
+
+Exported optical record vector: interface record containing wavelength band, Raman/IR/polarization features, readout power, readout parasitic heat, signal quality, and calibration identifier.
+
+Exported material stack vector: interface record containing active inclusion, transport layer, barrier layer, host coupling layer, sink/dump interface, and survivability screen.
+
+Exported rejection state vector: interface record containing the failed criterion, measured offending term, rejection cause, and safe fallback classification.
+
+Internal laser: coherent or laser-like emission generated inside the HPCS medium or an embedded HPCS-compatible gain inclusion.
+
+Gain medium: material subsystem that provides optical, Raman, rare-earth, semiconductor, polariton, or scattering-assisted gain.
+
+Pump path: declared input path supplying energy to the gain medium through optical, electrical, thermal-assisted, Raman, near-field, RF, microwave, or field-assisted coupling.
+
+Feedback mechanism: cavity, microcavity, distributed feedback, waveguide resonance, scattering feedback, polariton resonance, fiber loop, protected external cavity, or equivalent feedback path that permits stimulated emission above threshold.
+
+Laser threshold: minimum pump condition at which net gain exceeds total losses or equivalent random/polariton gain exceeds emission threshold.
+
+Residual laser heat: heat remaining in the host, gain medium, pump path, receiver, or dump after useful optical output is produced.
+
+Raman laser mode: laser emission generated by stimulated Raman scattering in a Raman-active solid, ceramic, crystal, fiber, or waveguide.
+
+Random laser mode: laser-like emission in a disordered gain medium where multiple scattering supplies feedback rather than a conventional mirror cavity.
+
+Phonon-polariton coherent-emitter candidate: coherent-output candidate based on coupled photon-optical-phonon modes in a polar material or heterostructure.
+
+Thermal-threshold optical beacon: emission subsystem that activates when heat, pressure, strain, or damage crosses a declared threshold.
+
+# 4. SYSTEM_OVERVIEW
+The system is a rugged solid-state optical state element embedded into a host material or attached as a protected witness layer. The active inclusion carries environmental state by changing measurable optical features under pressure, temperature, strain, damage, or domain-state changes.
+
+The central operating chain is:
+1. the host component experiences temperature, pressure, strain, or damage;
+2. the embedded active inclusion shares the local environment through mechanical, thermal, or chemical coupling;
+3. Raman-active or polarization-sensitive modes shift, broaden, split, invert sign, or change intensity;
+4. an optical path interrogates the active inclusion;
+5. measured spectra are converted into a bounded state vector;
+6. the state vector reports live condition, exposure history, or component identity.
+
+The preferred project use is a passive or semi-passive embedded witness material for pressure, strain, temperature, overload, domain state, thermal history, and structural health.
+
+The infrared-laser operating chain is:
+1. an external infrared or near-infrared source generates the interrogation beam;
+2. the beam is routed by fiber, window, waveguide, or standoff optics;
+3. the active inclusion receives the beam without exceeding local heating or damage limits;
+4. Raman, polarization, reflection, transmission, absorption, or thermal optical response is collected;
+5. the response is filtered against fluorescence, thermal glow, fiber background, and window background;
+6. calibrated features are converted into X_env.
+
+
+The heat-extraction operating chain is:
+1. a hot embedded region generates lattice heat, infrared radiation, or both;
+2. the thermal pickup layer couples heat into a named carrier;
+3. the carrier moves energy through a solid transport layer or radiative path;
+4. the transport layer delivers energy to a colder shell, radiator, coolant interface, converter, or active pump dump;
+5. optical or thermal readout verifies path health, saturation state, and local environmental condition.
+
+The heat-extraction branch shall not claim heat removal unless the heat sink or work-driven pump stage is identified. Chiral, ferroaxial, or signed optical response may be used as a heat-path state readout or routing indicator, but shall not be treated as the primary heat carrier unless a specific carrier model is declared.
+
+The field-assisted operating chain is:
+1. a radio, microwave, infrared, near-field, magnetic, or time-modulated field interacts with a qualified material layer;
+2. the field couples to a declared carrier such as magnon, phonon-polariton, evanescent photon channel, electronic carrier, or photonic receiver state;
+3. the carrier modifies heat flow, enables heat-path readout, opens or closes a thermal valve, or assists heat pumping;
+4. extracted or transported heat is delivered to a declared sink, radiator, converter, coolant interface, or pump dump;
+5. readout confirms heat-path state, field-coupling state, and saturation behavior.
+
+Field-assisted heat transport shall not be treated as vacuum energy extraction. Quantum-field language in this standard is limited to fluctuation-mediated thermal transport, evanescent electromagnetic coupling, time-modulated photonic work input, and measurable heat-flow control between material bodies.
+
+# 5. ARCHITECTURE
+## 5.1 DEVICE_ARCHITECTURE
+The device architecture contains:
+- host component;
+- mechanical coupling region;
+- thermal coupling region;
+- chemical barrier or compatibility layer;
+- active inclusion;
+- optical access path;
+- readout instrument;
+- calibration model;
+- state reconstruction algorithm.
+
+The active inclusion shall remain solid-state during operation and shall not require moving parts.
+
+## 5.2 MATERIAL_ARCHITECTURE
+The active material shall be selected from one or more of the following families:
+- ferroaxial oxide or ceramic;
+- axial-domain crystalline material;
+- wide-energy-band Raman-active ceramic;
+- high-temperature-compatible Raman marker crystal;
+- pressure-stable crystalline inclusion;
+- thin-film material with domain-stable optical response.
+
+Layered low-temperature charge-density-wave materials may be used as theory templates, but harsh embedded applications shall prioritize materials with high thermal stability, pressure stability, chemical compatibility, and repeatable optical calibration.
+
+Composition expansion rule:
+A material family shall not be promoted by family name alone. Each candidate shall declare composition, phase form, intended carrier, operating role, truth class, material-readiness tag, operating-regime tag, and rejection trigger.
+
+Minimum composition families:
+
+| Material code | Representative composition or phase | Primary role in HPCS | Supporting branch | Truth/readiness default | Required qualification focus |
+| --- | --- | --- | --- | --- | --- |
+| MAT_SIC_001 | 4H-SiC, 6H-SiC, CVD SiC, sintered SiC | high-temperature polar dielectric, mid-IR surface phonon-polariton host, optical/thermal support | heat extraction, mid-IR coupling, harsh optical carrier | SUPPORTED_PHYSICS / PROVEN_BASIS for SiC polariton support; REQUIRES_MATERIAL_QUALIFICATION for embedded HPCS stack | oxidation, interface reaction, Reststrahlen-band damping, pressure shift, thermal cycling |
+| MAT_HBN_001 | hBN, isotopically enriched hBN, protected BN interlayer | hyperbolic phonon-polariton testbed, near-field receiver layer, anisotropic thermal bridge | phonon-polariton heat transfer, near-field coupling | SUPPORTED_PHYSICS / PROVEN_BASIS for hBN HPhP mechanism; CANDIDATE for harsh embedding | delamination, oxidation barrier, spacing control, anisotropic alignment, pressure survivability |
+| MAT_ALN_001 | AlN ceramic, AlN film, Sc_xAl_1-xN film where x is declared | high-thermal-conductivity dielectric layer, piezo/elastic transducer, RF/microwave-compatible support | heat spreading, pressure/strain transduction, field-assisted control | SUPPORTED_PHYSICS for AlN thermal/electrical behavior; REQUIRES_MATERIAL_QUALIFICATION for stack | thermal conductivity retention, dielectric loss, delamination, phase/composition stability |
+| MAT_AL2O3_001 | sapphire single-crystal Al2O3, polycrystalline alumina | optical window, substrate, pressure boundary, Raman background reference, protective cap | optical access, window-adjacent witness, pressure boundary | SUPPORTED_PHYSICS / PROVEN_BASIS for optical/mechanical use; CANDIDATE for each pressure/thermal design | thermal shock, mounting stress, optical darkening, fluorescence/background, pressure cycling |
+| MAT_DIAMOND_001 | single-crystal diamond, CVD diamond, polycrystalline diamond, DLC cap | high-conductivity spreader, Raman laser medium, Raman reference, optical cap | heat spreading, internal Raman lasing, optical marker | SUPPORTED_PHYSICS for diamond Raman/thermal properties; CANDIDATE for embedded stack | graphitization, interface bonding, thermal stress, pump damage, residual laser heat |
+| MAT_YSZ_001 | ZrO2 stabilized with Y2O3, commonly 7-8 wt% Y2O3 for TBC-class screening unless otherwise declared | thermal barrier, protective matrix, witness host, low-conductivity insulation layer | thermal barrier compatibility, hot-side protection | SUPPORTED_PHYSICS for TBC use; REQUIRES_MATERIAL_QUALIFICATION for optical witness use | phase stability, sintering, Raman detectability, thermal-cycle spallation, compatibility with marker |
+| MAT_HFO2ZRO2_001 | HfO2, ZrO2, Hf_xZr_1-xO2, stabilized refractory oxide | refractory dielectric layer, high-temperature barrier, possible phonon/polar dielectric support | protective matrix, dielectric stack | CANDIDATE_DEVICE_BRANCH until HPCS carrier/readout proof | phase changes, oxygen activity, dielectric loss, optical opacity, host reaction |
+| MAT_MGO_SPINEL_001 | MgO, MgAl2O4 spinel, related transparent refractory oxide | optical window/support, refractory matrix, pressure-stable host | optical access, protective support | SUPPORTED_PHYSICS for refractory/optical-material use; CANDIDATE for HPCS branch | hydration/chemical compatibility, thermal shock, optical background, pressure fracture |
+| MAT_YAG_RE_001 | Y3Al5O12 doped with Nd, Yb, Er, Ho, Tm, or Ce as declared | rare-earth laser gain, photoluminescent marker, microcavity inclusion | internal lasing, thermal beacon, optical marker | SUPPORTED_PHYSICS for rare-earth gain media; CANDIDATE for harsh embedding | concentration quenching, dopant diffusion, thermal quench, cavity deformation, residual heat |
+| MAT_Y2O3_LU2O3_RE_001 | Y2O3, Lu2O3, Sc2O3 transparent ceramic with declared rare-earth dopant | high-temperature ceramic gain or PL marker | internal lasing, threshold beacon | CANDIDATE_DEVICE_BRANCH for HPCS until survivability and output proof | sintering transparency, dopant solubility, thermal quench, host reaction, pump absorption |
+| MAT_YIG_FERRITE_001 | Y3Fe5O12, substituted garnet/ferrite where composition is declared | magnonic/spin-caloritronic thermal-state readout, microwave resonance layer | field-assisted transport/control | SUPPORTED_PHYSICS for magnonics; REQUIRES_MATERIAL_QUALIFICATION for temperature/pressure branch | magnetic ordering margin, dielectric heating, microwave loss, pressure drift, calibration stability |
+| MAT_TPV_001 | protected III-V, Si, Ge, or narrow-bandgap receiver selected by source spectrum | thermophotovoltaic receiver or converter at cold-side dump | radiative dump, TPV conversion, heat-path receiver | SUPPORTED_PHYSICS for TPV conversion; CANDIDATE for HPCS integration | spectral match, back-heating, receiver cooling, junction survivability, conversion efficiency |
+| MAT_PHASE_CHANGE_001 | GST or other phase-change layer with declared composition | tunable emissivity, spectral switch, thermal-history marker | thermal IR modulation, state marker | CANDIDATE_DEVICE_BRANCH | cycling drift, crystallization/amorphization threshold, optical loss, chemical stability |
+| MAT_GRAPHITE_CARBON_001 | graphite, pyrolytic graphite, carbon-carbon, graphene/graphitic interlayer where survivable | anisotropic heat spreading, thermal pickup, high-temperature support in compatible atmospheres | heat spreading, pickup layer | CANDIDATE; atmosphere-dependent | oxidation, anisotropy alignment, bonding, electrical parasitics, optical opacity |
+| MAT_REFRACTORY_METAL_001 | W, Mo, Ta, Re, or compatible refractory alloy | thermal IR emitter, electrode, grating, thermal source, structural hot-side coupler | thermal-sourced IR, mid-IR emitter, field coupling | SUPPORTED_PHYSICS for refractory-metal use; REQUIRES_MATERIAL_QUALIFICATION for stack | oxidation, creep, reaction with ceramic, emissivity drift, thermal expansion mismatch |
+
+Composition declaration vector:
+
+M_comp = {
+  material_code,
+  nominal_formula,
+  dopant_species,
+  dopant_fraction,
+  phase_or_polytype,
+  grain_or_film_geometry,
+  porosity_or_density,
+  crystallographic_orientation,
+  coating_or_barrier_layers,
+  host_contact_material,
+  intended_carrier,
+  intended_readout_feature,
+  truth_class,
+  material_readiness_tag,
+  operating_regime_tag,
+  rejection_trigger
+}
+
+Composition guard:
+If dopant fraction, phase/polytype, orientation, or barrier layer controls the intended carrier, it shall be declared before material promotion. Generic terms such as ceramic, oxide, nitride, garnet, or carbon shall not pass promotion without M_comp.
+
+## 5.3 EMBEDDED_FORMS
+Permitted embedded forms include:
+- discrete crystal grain;
+- sintered ceramic inclusion;
+- thin-film island;
+- buried witness layer;
+- fiber-tip coating;
+- surface-bonded optical patch;
+- protected window-adjacent marker;
+- pressure-cell witness coupon.
+
+Each form shall preserve optical access, mechanical coupling, and thermal survivability.
+
+## 5.4 READOUT_ARCHITECTURE
+The readout architecture contains:
+- excitation source;
+- polarization preparation stage when signed optical channels are used;
+- optical delivery path;
+- scattered-light collection path;
+- spectral analyzer or channel filter;
+- calibration transform;
+- quality gate;
+- output state record.
+
+The readout architecture may be remote. The embedded material shall not require onboard electronics if passive readout is sufficient.
+
+## 5.5 INFRARED_LASER_ARCHITECTURE
+The infrared-laser branch contains:
+- IR or near-IR laser source;
+- power limiter;
+- wavelength-stability monitor;
+- delivery fiber, standoff optic, waveguide, or window;
+- optional polarization preparation stage;
+- active inclusion or witness layer;
+- return collection path;
+- notch, edge, line, or thermal-background filters;
+- spectrometer, filtered photodiode, lock-in detector, or time-domain receiver;
+- reference channel;
+- calibration and rejection logic.
+
+The laser source shall remain outside the harsh zone unless the source package is qualified for the target temperature, pressure, vibration, and chemical environment.
+
+## 5.6 INFRARED_WAVELENGTH_LANES
+Permitted wavelength lanes are:
+- 785 nm: high Raman efficiency, higher fluorescence risk;
+- 830 nm: Raman-compatible compromise lane;
+- 980 nm: fiber-compatible near-IR lane with moderate Raman efficiency;
+- 1064 nm: reduced fluorescence lane with lower Raman scattering than shorter wavelengths;
+- 1310 nm: telecom-compatible low-loss fiber lane for selected optical readout;
+- 1550 nm: telecom-compatible lane for fiber-network concepts and selected absorption or backscatter modes;
+- mid-IR: absorption/process-state lane where Raman is not the primary mechanism.
+
+The selected lane shall be justified against fluorescence, thermal background, optical attenuation, detector sensitivity, Raman efficiency, fiber/window survivability, and host-material absorption.
+
+## 5.7 IR_EMBEDDED_FORMS
+Infrared-compatible embedded forms include:
+- fiber-tip witness coating;
+- buried Raman marker particle viewed through a window;
+- sapphire-window-adjacent witness layer;
+- optical patch on a hot-zone surface;
+- embedded grain array interrogated by standoff optics;
+- waveguide-coupled thin-film marker;
+- distributed fiber segment using Raman backscatter for thermal profile plus discrete marker inclusions for local pressure or damage state.
+
+Each infrared form shall define the optical path length, expected signal loss, thermal isolation or coupling, and maximum permitted laser irradiance at the active inclusion.
+
+
+## 5.8 HEAT_EXTRACTION_ARCHITECTURE
+The heat-extraction architecture contains:
+- hot-zone pickup interface;
+- thermal pickup layer;
+- transport layer;
+- optional polariton or infrared coupling layer;
+- optional chiral, ferroaxial, or signed-domain readout layer;
+- cold-side heat sink, radiator, coolant interface, converter, or pump dump;
+- heat-path readout channel;
+- saturation and failure monitor.
+
+Preferred passive stack:
+HOT_ZONE -> THERMAL_PICKUP_LAYER -> PHONON_OR_POLARITON_TRANSPORT_LAYER -> COLD_SIDE_DUMP.
+
+Preferred assisted stack:
+HOT_ZONE -> THERMAL_PICKUP_LAYER -> DRIVEN_PHOTONIC_OR_THERMOELECTRIC_STAGE -> HEAT_DUMP.
+
+No heat-extraction architecture is complete without a declared heat sink, allowed temperature gradient, transport loss model, and maximum accepted heat load.
+
+## 5.9 SPECTRAL_HEAT_EXTRACTION_ARCHITECTURE
+The spectral heat-extraction architecture assigns electromagnetic bands by function:
+- microwave: activation, calibration, or controlled heating;
+- millimeter wave: dielectric-state probing or shallow interrogation;
+- terahertz: collective-mode probing and low-energy mode coupling;
+- far infrared: infrared-active phonon coupling;
+- mid infrared: primary phonon-polariton, radiative, or thermal-emission heat-extraction lane;
+- near infrared: fiber readout, Raman interrogation, laser pump, or reference channel;
+- visible: laboratory readout, alignment, or surface diagnostics;
+- ultraviolet: defect or surface diagnostic only unless qualified otherwise;
+- X-ray/gamma: inspection only, not a heat-extraction lane.
+
+For the project heat-removal goal, mid-infrared and far-infrared lanes are primary. Near-infrared and visible lanes are readout and control lanes unless a separate absorption or pumping model is qualified.
+
+## 5.10 FIELD_ASSISTED_HEAT_TRANSPORT_ARCHITECTURE
+The field-assisted heat-transport architecture contains:
+- field source or ambient field condition;
+- coupling interface;
+- field-responsive material layer;
+- declared carrier layer;
+- thermal pickup or receiver interface;
+- heat sink, radiator, converter, coolant interface, or pump dump;
+- control input when active pumping or modulation is used;
+- diagnostic readout channel;
+- spacing, alignment, and survivability constraints.
+
+Permitted field-assisted forms include:
+- RF telemetry layer coupled to embedded witness nodes;
+- microwave magnetic-resonance control layer;
+- magnon-assisted spin-caloritronic thermal-state layer;
+- near-field electromagnetic heat-transfer stack;
+- phonon-polariton electromagnetic coupling layer;
+- thermophotovoltaic receiver layer;
+- time-modulated photonic heat-pump stage;
+- fluctuation-mediated quantum thermal channel between controlled material bodies;
+- spacing-managed near-field spacing with Casimir-adjacent mechanical controls.
+
+Preferred field-assisted stack:
+HOT_ZONE -> FIELD_COUPLING_LAYER -> DECLARED_CARRIER_LAYER -> RECEIVER_OR_PUMP_STAGE -> HEAT_DUMP.
+
+Field-assisted architecture shall not be accepted unless it distinguishes control energy, transported heat, parasitic heating, and net removed heat.
+
+
+## 5.11 INTERNAL_LASING_ARCHITECTURE
+An internal lasing subsystem is optional. It shall not be assumed from the base HPCS material.
+
+A conformant internal lasing subsystem shall contain:
+- gain medium;
+- pump path;
+- feedback mechanism;
+- threshold rule;
+- output path;
+- residual-heat dump;
+- loss budget;
+- pressure and temperature survivability limits.
+
+Permitted internal lasing forms are:
+- embedded gain inclusion;
+- thin-film gain island;
+- rare-earth-doped ceramic grain;
+- Raman-active crystal region;
+- waveguide or fiber-tip gain region;
+- random scattering composite;
+- polariton heterostructure;
+- protected microcavity layer.
+
+The internal laser path is:
+
+pump source -> gain medium -> feedback mechanism -> threshold crossing -> internal emission -> output path -> residual-heat dump -> emission record.
+
+## 5.12 INTERNAL_LASING_FAMILIES
+LASER_FAMILY_001_SOLID_STATE_RAMAN_LASER:
+  Raman-active solid converts pump photons into coherent Stokes output through stimulated Raman scattering.
+
+LASER_FAMILY_002_RANDOM_LASER_COMPOSITE:
+  Gain-doped scattering medium produces laser-like emission through multiple-scattering feedback.
+
+LASER_FAMILY_003_RARE_EARTH_CERAMIC_MICROCAVITY:
+  Rare-earth-doped oxide or ceramic inclusion emits through a microcavity, waveguide resonance, or resonant grain-boundary path.
+
+LASER_FAMILY_004_SEMICONDUCTOR_OR_QUANTUM_WELL_GAIN_LAYER:
+  Protected semiconductor or quantum-well subsystem emits under declared pump, pressure, and thermal constraints.
+
+LASER_FAMILY_005_PHONON_POLARITON_COHERENT_EMITTER_CANDIDATE:
+  Polar material or heterostructure emits coherent THz or IR polariton radiation only after gain, coupling, resonance, coherence, and output proof.
+
+LASER_FAMILY_006_THERMAL_THRESHOLD_OPTICAL_BEACON:
+  Subsystem emits when local heat, pressure, strain, damage, or exposure history crosses a declared threshold.
+
+## 5.13 SEPARATION_OF_LASING_FROM_HEAT_EXTRACTION
+Internal lasing shall not replace the heat-extraction model.
+
+Laser output may be counted as removed heat only when:
+- optical energy exits the protected zone or reaches a declared receiver outside it;
+- pump and readout parasitics are debited;
+- residual internal laser heat is debited;
+- transient stored-energy release is debited;
+- the protected-zone baseline comparison remains valid.
+
+Otherwise, internal lasing shall be classified as sensing, beaconing, amplification, or conversion rather than heat extraction.
+
+# 6. INTERFACE_DEFINITIONS
+## 6.1 HOST_TO_INCLUSION_INTERFACE
+The host-to-inclusion interface transfers pressure, strain, temperature, and damage state from the host component to the active inclusion.
+
+Required interface properties:
+- mechanical load transfer shall be known or bounded;
+- thermal lag shall be known or bounded;
+- chemical diffusion shall be below the allowed drift threshold;
+- interfacial cracking shall be detectable or shall not corrupt accepted measurements;
+- inclusion placement shall not unacceptably weaken the host component.
+
+## 6.2 OPTICAL_INTERFACE
+The optical interface transfers photons into and out of the active inclusion.
+
+Required optical properties:
+- excitation wavelength shall be compatible with the host, barrier, and inclusion;
+- fluorescence background shall remain below the measurement rejection threshold;
+- optical attenuation shall remain within the readout budget;
+- polarization state shall be preserved when chiral or signed readout is required;
+- hot-surface glow shall be separated from the measurement channel when high-temperature interrogation is used.
+
+## 6.3 INFRARED_OPTICAL_INTERFACE
+The infrared optical interface shall define:
+- excitation wavelength;
+- laser linewidth and wavelength stability;
+- maximum continuous and pulsed power at the active inclusion;
+- spot size or mode-field diameter;
+- optical path material;
+- return-path geometry;
+- background sources;
+- filter stack;
+- detector spectral range;
+- reference channel;
+- polarization preservation when signed readout is required.
+
+Infrared delivery shall not be accepted unless the path survives the target pressure, temperature, thermal gradient, vibration, and chemical adjacency. When silica fiber is outside its qualified temperature range, the design shall use remote placement, protective routing, specialty fiber, sapphire-compatible optical paths, or window/standoff coupling.
+
+## 6.4 HEAT_EXTRACTION_INTERFACE
+The heat-extraction interface shall define:
+- protected thermal region;
+- unmodified host baseline;
+- hot-side temperature and heat flux;
+- thermal pickup material;
+- named heat transport carrier;
+- transport geometry and length;
+- transport attenuation or thermal resistance;
+- cold-side sink, radiator, coolant, converter, or pump dump;
+- exported heat q_exported;
+- protected-zone cooling metric;
+- maximum heat load before saturation;
+- readout method for heat-path integrity;
+- rejection thresholds for delamination, cracking, opacity, or thermal overload.
+
+The interface shall reject any heat-extraction claim that lacks a sink or lacks an external work input when heat is moved against the natural thermal gradient. The interface shall also reject any claim that improves heat flow inside the local hot region but does not reduce the protected-zone thermal burden relative to the unmodified host baseline.
+
+## 6.5 REPO_STANDARD_INTERFACE_MAP
+This standard exports and imports the following repo-facing interfaces:
+- STD-RCD-001 imports theory seed: resonant chiral dressing, signed optical response, and coupled mode language;
+- STD-BLOCK-001 consumes material-stack requirements for poly-ceramic or embedded-block placement;
+- STD-WAVEG-001 consumes path geometry, field-line routing, and solid-state channel constraints;
+- STD-HULL-001 and STD-HULLTYPE-001 consume host-boundary, survivability, heat-dump, and optical-window requirements;
+- STD-SPSA-001 consumes calibration, signal processing, rejection logic, and state-vector reconstruction;
+- STD-DRIVE-001 and STD-SHIP-001 consume high-level thermal-state telemetry and heat-path health output only;
+- STD-CSA-001 and STD-FUELCAL-001 are not source authorities for this material standard and shall not redefine its physics.
+
+STD-HPCS-001 shall not import drive, fuel, or CSA assumptions as material requirements. It exports measured thermal, optical, pressure, strain, and damage state only.
+
+## 6.6 CALIBRATION_INTERFACE
+The calibration interface maps measured optical features to a bounded state vector.
+
+The calibration interface shall include:
+- material identifier;
+- inclusion geometry;
+- host material identifier;
+- operating envelope;
+- pressure coefficient set;
+- temperature coefficient set;
+- strain coefficient set if applicable;
+- polarization-channel rules if applicable;
+- rejection thresholds;
+- uncertainty bounds.
+
+## 6.7 OUTPUT_INTERFACE
+The output interface returns the reconstructed state vector.
+
+Canonical output fields:
+- T_est: estimated temperature;
+- P_est: estimated pressure or compressive stress;
+- epsilon_est: estimated strain when qualified;
+- D_est: damage or disorder index;
+- H_est: exposure-history indicator;
+- S_opt: signed optical-domain state when qualified;
+- Q_meas: measurement quality flag;
+- U_bound: uncertainty bound;
+- H_path: heat-path integrity state when heat extraction is used;
+- q_exported_est: estimated exported heat when heat extraction is qualified;
+- Delta_T_protected: protected-zone cooling metric when thermal management is claimed.
+
+
+LASER_EMISSION_RECORD = {laser_mode_id, laser_family, gain_medium_id, pump_class, pump_band, output_band, feedback_type, threshold_status, P_pump_abs, P_threshold, P_out_laser, linewidth, q_laser_residual_internal, q_laser_residual_external, sink_status, pressure_survivability_status, temperature_survivability_status, rejection_status}
+
+TRUTH_CLASS_RECORD = {record_id, claim_id, branch_id, truth_class, material_readiness_tag, operating_regime_tag, proof_vector_id, qualification_gate, promotion_status, rejection_status}
+
+where:
+- laser_mode_id identifies the specific internal-lasing mode;
+- laser_family identifies Raman, random, rare-earth ceramic, semiconductor, polariton candidate, or thermal beacon family;
+- gain_medium_id identifies the gain material or inclusion;
+- pump_class identifies optical, electrical, thermal-assisted IR, RF, microwave, near-field, or Raman pumping;
+- feedback_type identifies mirror cavity, microcavity, distributed feedback, waveguide resonance, random scattering, polariton resonance, fiber loop, protected external cavity, or rejected undeclared feedback;
+- threshold_status identifies BELOW_THRESHOLD, ABOVE_THRESHOLD, REJECTED, or NOT_APPLICABLE;
+- P_pump_abs, P_threshold, and P_out_laser are power terms in W;
+- q_laser_residual_internal and q_laser_residual_external are residual-heat terms in W;
+- rejection_status records failed gain, pump, feedback, threshold, output, loss, or survivability conditions.
+
+## 6.8 FIELD_ASSISTED_INTERFACE
+The field-assisted interface shall define:
+- field band and frequency or wavelength;
+- field source, antenna, cavity, electrode, coil, optical coupler, or near-field spacing geometry;
+- field mode class;
+- coupled carrier;
+- active or passive status;
+- control input power when modulation or active pumping is used;
+- heat source;
+- protected thermal region;
+- unmodified host baseline;
+- heat sink, converter, radiator, coolant interface, or pump dump;
+- net heat-flow direction;
+- internal parasitic heat generation;
+- external parasitic heat generation;
+- exported heat;
+- protected-zone cooling metric;
+- saturation threshold;
+- readout method;
+- survivability limit.
+
+The interface shall classify RF telemetry and ordinary microwave dielectric interaction as SUPPORT_CONTROL unless a separate heat carrier, sink, and protected-zone cooling metric are qualified. The interface shall reject field-assisted heat-pump claims that lack a declared work input when heat is moved against the passive gradient.
+
+## 6.9 NEAR_FIELD_SPACING_INTERFACE
+A near-field electromagnetic heat-transfer interface shall define:
+- hot-side material;
+- receiver-side material;
+- spacing or contact geometry;
+- spacer material and tolerance;
+- surface roughness envelope;
+- vibration envelope;
+- contamination envelope;
+- contact-collapse rejection rule;
+- thermal expansion compensation;
+- measurement method for heat flux across the interface;
+- receiver dump or conversion path;
+- residual heat path;
+- acceptance band for spacing-relative-to-thermal-wavelength or modal decay length.
+
+Near-field operation shall not be accepted when spacing, surface condition, receiver dump, and mechanical stability are outside the qualified coupling envelope.
+
+# 7. DATA_MODELS
+## 7.1 ENVIRONMENT_STATE_VECTOR
+The environment state vector is:
+
+X_env = {T_op, P_op, epsilon, sigma, D, H, S_opt}
+
+where:
+- T_op is operating temperature;
+- P_op is operating pressure;
+- epsilon is strain;
+- sigma is stress state;
+- D is damage or disorder index;
+- H is exposure-history state;
+- S_opt is signed optical-domain state.
+
+## 7.2 OPTICAL_FEATURE_VECTOR
+The measured feature vector is:
+
+Y_opt = {omega_i, gamma_i, A_i, Split_i, ROA_i, Phi_i, B_i}
+
+where:
+- omega_i is mode frequency;
+- gamma_i is mode linewidth;
+- A_i is mode amplitude;
+- Split_i is mode splitting;
+- ROA_i is circular or signed optical contrast;
+- Phi_i is phase or fitted complex-response phase when measured;
+- B_i is background level.
+
+## 7.3 INFRARED_READOUT_VECTOR
+The infrared readout vector is:
+
+Y_IR = {lambda_ex, P_laser, tau_exp, L_path, eta_return, F_bg, G_thermal, Pol_leak, R_ref}
+
+where:
+- lambda_ex is excitation wavelength;
+- P_laser is power at the active inclusion;
+- tau_exp is exposure time or pulse duration;
+- L_path is optical path length or equivalent loss model;
+- eta_return is return collection efficiency;
+- F_bg is fluorescence background;
+- G_thermal is thermal-glow background;
+- Pol_leak is polarization leakage;
+- R_ref is reference-channel response.
+
+## 7.4 CALIBRATION_MODEL
+The calibration model is:
+
+X_est = C_inv(Y_opt, M_id, G_inc, H_host, E_env)
+
+where:
+- X_est is reconstructed state;
+- C_inv is the inverse calibration transform;
+- M_id is active material identity;
+- G_inc is inclusion geometry;
+- H_host is host identity and coupling model;
+- E_env is the qualified operating envelope.
+
+## 7.5 PRESSURE_TEMPERATURE_MODE_MODEL
+For a single Raman marker mode, the first-order operating model is:
+
+omega_i(T,P,epsilon) = omega_i0 + a_i*(T - T0) + b_i*(P - P0) + c_i*epsilon + k_i*D
+
+where:
+- omega_i0 is reference frequency;
+- a_i is temperature coefficient;
+- b_i is pressure coefficient;
+- c_i is strain coefficient;
+- k_i is disorder or damage coefficient;
+- T0 and P0 are reference conditions.
+
+Higher-order terms may be used only when calibration data supports them.
+
+## 7.6 SIGNED_OPTICAL_RESPONSE_MODEL
+When signed optical response is used, the measured contrast is:
+
+ROA_i_obs(T,P,epsilon) = S_opt * ROA_i_mag(T,P,epsilon,D)
+
+where:
+- S_opt is in {-1,+1} for a qualified two-domain state;
+- ROA_i_mag is nonnegative magnitude after instrument normalization;
+- domain mixing may reduce ROA_i_mag without changing the declared sign until the quality gate rejects the measurement.
+
+## 7.7 EXPOSURE_HISTORY_MODEL
+Exposure history may be represented as:
+
+H = f(permanent_peak_shift, irreversible_linewidth_change, retained_split, retained_domain_change)
+
+A witness-mode claim shall require a demonstrated irreversible or hysteretic optical feature. Reversible sensor operation shall not be labeled as exposure-history storage.
+
+
+## 7.8 HEAT_TRANSPORT_VECTOR
+The heat transport vector is:
+
+Y_heat = {CV_protected, A_boundary, V_protected, T_hot, T_sink, T_protected_base, T_protected_active, q_source, q_removed_hot_side, q_boundary_out, q_exported, q_parasitic_internal, q_parasitic_external, q_readout_internal, q_readout_external, q_laser_residual_internal, q_laser_residual_external, q_stored, U_stored, dU_dt, q_storage_release, q_storage_transient_debit, carrier_id, alpha_path, L_heat, eta_heat_passive, q_net_protected, q_net_protected_sustained, q_net_device, heat_burden_coverage, W_in, COP_protected, COP_device, Delta_T_protected, S_sat, H_path}
+
+where:
+- CV_protected identifies the protected control volume;
+- A_boundary identifies the control-volume boundary;
+- V_protected defines the protected volume;
+- T_hot is hot-side temperature;
+- T_sink is sink, radiator, converter, coolant, or dump-side temperature;
+- T_protected_base is protected-region temperature in the unmodified host baseline;
+- T_protected_active is protected-region temperature with the HPCS path active;
+- q_source is heat generated or entering inside CV_protected;
+- q_removed_hot_side is heat removed at the protected-zone boundary or hot-side pickup interface;
+- q_boundary_out is gross heat crossing out of CV_protected before debit terms are applied;
+- q_exported is heat delivered to a sink or dump outside the protected region;
+- q_parasitic_internal is non-readout parasitic heat deposited inside CV_protected;
+- q_parasitic_external is non-readout parasitic heat deposited outside CV_protected;
+- q_readout_internal is heat deposited inside CV_protected by measurement, reference, pump-leakage, or readout channels;
+- q_readout_external is heat deposited outside CV_protected by measurement, reference, pump-leakage, or readout channels;
+- q_laser_residual_internal is residual internal heat from an internal-lasing subsystem;
+- q_laser_residual_external is residual external heat from an internal-lasing subsystem;
+- q_stored and U_stored are stored thermal energy terms in J;
+- dU_dt is the time rate of internal-energy storage in CV_protected;
+- q_storage_release = max(-dU_dt,0) is storage-release debit;
+- q_storage_transient_debit = max(dU_dt,0) + q_storage_release is a conservative transient-storage debit used when accepting sustained heat removal;
+- carrier_id identifies the dominant heat transport carrier;
+- alpha_path is attenuation or effective loss coefficient;
+- L_heat is transport path length;
+- eta_heat_passive is passive heat transport efficiency based on q_exported/q_source and shall not be used for active pumping;
+- q_net_protected is instantaneous protected-zone net removal as defined only by Section 7.15;
+- q_net_protected_sustained is the accepted steady-window value from Section 7.15;
+- q_net_device is whole-device net thermal benefit from Section 7.15;
+- heat_burden_coverage is q_net_protected_sustained/q_source;
+- W_in is external work input when active pumping is claimed;
+- COP_protected and COP_device are dimensionless active-pump performance metrics;
+- Delta_T_protected = T_protected_base - T_protected_active;
+- S_sat is saturation state;
+- H_path is heat-path integrity state.
+
+Heat vector units are mandatory: q_source, q_removed_hot_side, q_boundary_out, q_exported, q_parasitic_internal, q_parasitic_external, q_readout_internal, q_readout_external, q_laser_residual_internal, q_laser_residual_external, q_storage_release, q_storage_transient_debit, q_net_protected, q_net_protected_sustained, q_net_device, W_in, and dU_dt are W; q_stored and U_stored are J; temperatures are K unless a conversion is declared; eta_heat_passive, COP_protected, COP_device, and heat_burden_coverage are dimensionless.
+
+
+## 7.9 SPECTRAL_MODE_VECTOR
+The spectral mode vector is:
+
+Y_spec = {band_id, lambda_or_frequency, coupler_id, carrier_id, path_id, sink_id, readout_id, loss_id}
+
+where:
+- band_id names the electromagnetic band;
+- lambda_or_frequency defines the operating wavelength or frequency;
+- coupler_id identifies the coupling interface;
+- carrier_id identifies the heat or signal carrier;
+- path_id identifies the transport path;
+- sink_id identifies the heat dump or receiver;
+- readout_id identifies the measurement channel;
+- loss_id identifies the dominant loss model.
+
+## 7.10 HEAT_EXTRACTION_MODE_MODEL
+This section defines the operating summary for heat-extraction modes. Section 7.15 is the single normative source for protected-zone heat accounting, q_net_protected, q_net_protected_sustained, q_net_device, heat_burden_coverage, COP_protected, and COP_device.
+
+Passive heat extraction shall satisfy:
+
+T_hot > T_sink
+
+and shall report:
+
+eta_heat_passive = q_exported / q_source
+
+The protected-zone cooling metric is:
+
+Delta_T_protected = T_protected_base - T_protected_active
+
+A passive heat-extraction claim requires Delta_T_protected > 0 under baseline-equivalent operating load and shall also demonstrate that transient storage is not being mistaken for extraction.
+
+The protected control-volume balance shall be closed with the Section 7.15 term definitions. During transient operation, the claim shall report dU_dt, U_stored, q_storage_release, and q_storage_transient_debit. A falling local temperature caused only by heat storage in a nearby layer shall be classified as transient redistribution until a sink/export path is verified.
+
+A claim that only empties stored energy from CV_protected without covering the continuing source load shall be rejected as transient discharge, not heat extraction.
+
+Assisted heat pumping shall report external work input W_in and split coefficient of performance into protected-region and device-level forms:
+
+COP_protected = q_net_protected_sustained / W_in
+
+COP_device = q_net_device / W_in
+
+A declared heat pump shall identify whether q_removed_hot_side is measured at the protected-zone boundary, hot-side pickup, carrier path, or cold-side dump. A passive heat highway shall not be reported as active pumping.
+
+
+## 7.11 INTERNAL_LASING_MODE_MODEL
+The internal lasing model is:
+
+Y_laser = {laser_mode_id, laser_family, gain_medium_id, pump_class, pump_band, output_band, feedback_type, threshold_status, P_pump_abs, P_threshold, G_net, L_total, P_out_laser, P_out_laser_min, q_laser_residual_internal, q_laser_residual_external, q_laser_residual_internal_max, q_laser_residual_external_max, S_laser}
+
+where:
+- P_pump_abs is absorbed pump power in W;
+- P_threshold is threshold pump power in W;
+- G_net is declared net gain in the units required by the selected laser family;
+- L_total is declared total loss in matching units;
+- P_out_laser is output laser or laser-like power in W;
+- P_out_laser_min is the minimum useful output power for the declared readout, beacon, or conversion function;
+- q_laser_residual_internal is residual heat deposited inside the protected zone in W;
+- q_laser_residual_external is residual heat deposited outside the protected zone in W;
+- q_laser_residual_internal_max is the maximum allowed internal residual heat for the protected-zone accounting window;
+- q_laser_residual_external_max is the maximum allowed external residual heat for the device-level accounting window;
+- S_laser is laser state.
+
+The threshold and accepted-output condition is:
+
+P_pump_abs >= P_threshold AND G_net > L_total AND P_out_laser >= P_out_laser_min AND q_laser_residual_internal <= q_laser_residual_internal_max AND output_path_status == OPEN AND sink_status != FAILED
+
+If the threshold condition is false, S_laser shall be BELOW_THRESHOLD or REJECTED. If threshold is reached but P_out_laser is below P_out_laser_min, the branch may be classified as PHYSICALLY_EMITTING_BUT_NOT_USEFUL and shall not satisfy an internal-lasing application claim.
+
+Feedback type shall be one of:
+- MIRROR_CAVITY;
+- MICROCAVITY;
+- DISTRIBUTED_FEEDBACK;
+- WAVEGUIDE_RESONANCE;
+- RANDOM_SCATTERING;
+- POLARITON_RESONANCE;
+- FIBER_LOOP;
+- EXTERNAL_PROTECTED_CAVITY;
+- UNDECLARED_FEEDBACK_REJECTED.
+
+Pump class shall be one of:
+- EXTERNAL_OPTICAL_PUMP;
+- INTERNAL_OPTICAL_PUMP;
+- THERMAL_ASSISTED_IR_PUMP;
+- ELECTRICAL_PUMP;
+- RF_OR_MICROWAVE_ASSISTED_PUMP;
+- NEAR_FIELD_PUMP;
+- RAMAN_PUMP;
+- UNDECLARED_PUMP_REJECTED.
+
+Thermal-assisted IR pumping shall not imply lasing unless gain, feedback, threshold, usable-output, and residual-heat conditions are satisfied.
+
+
+## 7.12 LASER_LOSS_BUDGET_MODEL
+The internal-lasing loss budget shall include:
+- absorption loss;
+- scattering loss;
+- output-coupling loss;
+- thermal quenching loss;
+- pressure-induced detuning;
+- alignment or cavity-deformation loss;
+- surface, window, or fiber transmission loss;
+- host-material parasitic absorption;
+- residual heat deposition.
+
+The loss budget shall be rejected if any declared operating temperature, pressure, strain, vibration, or chemical environment invalidates the gain medium, feedback mechanism, or output path.
+
+## 7.13 TRANSPORT_ATTENUATION_MODEL
+For guided optical, polariton, or signal-like transport, the minimum attenuation model is:
+
+I(x) = I_0 * exp(-alpha*x)
+
+For heat-flow models, an equivalent thermal-resistance or measured heat-flux model may be used. The selected model shall name the carrier and shall not mix optical intensity with thermal heat flux without a conversion term.
+
+
+## 7.14 FIELD_ASSISTED_VECTOR
+The field-assisted vector is:
+
+Y_field = {field_band, f_field, P_field, mode_class, carrier_id, coupling_id, active_flag, W_in, q_removed_hot_side, q_exported, q_parasitic_internal, q_parasitic_external, q_readout_internal, q_readout_external, q_storage_release, q_net_protected_sustained, heat_burden_coverage, eta_field, Delta_T_protected, S_field, L_field}
+
+where:
+- field_band identifies RF, microwave, terahertz, infrared, near-field electromagnetic, magnetic, or photonic operation;
+- f_field is the operating frequency or equivalent optical frequency;
+- P_field is the applied field power or bounded ambient field level;
+- mode_class identifies SUPPORT_CONTROL, PASSIVE_TRANSPORT, CONVERSION, ACTIVE_CONTROL, ACTIVE_PUMP_CANDIDATE, or ACTIVE_PUMP;
+- carrier_id identifies magnon, phonon-polariton, evanescent photon, radiative photon, electronic carrier, or thermal diffusion carrier;
+- coupling_id identifies the antenna, coil, cavity, spacing, optical coupler, or material interface;
+- active_flag identifies passive, driven-control, or active-pump operation;
+- W_in is external work input when active pumping is declared;
+- q_removed_hot_side is heat removed at the protected hot-side boundary;
+- q_exported is heat delivered to the receiver, sink, dump, converter, or radiator outside the protected region;
+- q_parasitic_internal is heat added inside the protected region;
+- q_parasitic_external is heat added outside the protected region;
+- q_readout_internal and q_readout_external are measurement-induced heat terms assigned by deposition location;
+- q_storage_release is transient stored-energy release debit;
+- q_net_protected_sustained is accepted sustained protected-zone net removal;
+- heat_burden_coverage is q_net_protected_sustained/q_source;
+- eta_field is field-coupling efficiency for the declared useful function;
+- Delta_T_protected is protected-zone temperature reduction against baseline;
+- S_field is field-coupling state;
+- L_field is the dominant loss path.
+
+## 7.15 NET_HEAT_REMOVAL_MODEL
+Section 7.15 is the single normative heat-accounting source for heat-extraction, field-assisted cooling, active heat-pump, and internal-lasing thermal claims.
+
+Readout heat naming rule:
+- q_readout_internal is readout, reference, probe, pump-leakage, or detector-adjacent heat deposited inside CV_protected;
+- q_readout_external is readout, reference, probe, pump-leakage, or detector-adjacent heat deposited outside CV_protected;
+- generic q_readout may appear only as an informal aggregate and shall not be used in acceptance equations.
+
+Control-volume balance for CV_protected is:
+
+dU_dt = q_source + q_parasitic_internal + q_readout_internal + q_laser_residual_internal - q_removed_hot_side
+
+Storage-release debit is:
+
+q_storage_release = max(-dU_dt,0)
+
+Conservative transient-storage debit is:
+
+q_storage_transient_debit = max(dU_dt,0) + q_storage_release
+
+This debit intentionally treats both storage accumulation and storage release as acceptance penalties. It prevents temporary cooling, local heat shuffling, or release of previously stored energy from being misclassified as sustained heat extraction.
+
+Instantaneous protected-zone net removal is:
+
+q_net_protected = q_removed_hot_side - q_parasitic_internal - q_readout_internal - q_laser_residual_internal - q_storage_transient_debit
+
+Accepted sustained protected-zone net removal is the steady-window average:
+
+q_net_protected_sustained = average(q_net_protected) over the steady-state acceptance window
+
+Whole-device net thermal benefit may also report:
+
+q_net_device = q_exported - q_parasitic_internal - q_parasitic_external - q_readout_internal - q_readout_external - q_laser_residual_internal - q_laser_residual_external
+
+Heat burden coverage shall be reported as:
+
+heat_burden_coverage = q_net_protected_sustained / q_source
+
+Protected-region active-pump performance shall be reported as:
+
+COP_protected = q_net_protected_sustained / W_in
+
+Device-level active-pump performance shall be reported as:
+
+COP_device = q_net_device / W_in
+
+where q_removed_hot_side is heat removed across the protected boundary, q_exported is heat delivered to a declared receiver or dump, q_parasitic_internal is heat added inside the protected region, q_parasitic_external is heat generated outside the protected region, q_readout_internal/external are readout heat terms assigned by deposition location, q_laser_residual_internal/external are residual heat terms from internal-lasing operation, and q_storage_transient_debit prevents transient storage behavior from being counted as sustained source-load removal.
+
+A field-assisted heat pump is accepted only when q_net_protected_sustained > 0, heat_burden_coverage > 0, Delta_T_protected > 0, and the control-volume balance is closed under the declared operating envelope. q_net_device may be lower than q_net_protected_sustained when external drive electronics or converter losses are counted.
+
+A reported cooling effect shall be rejected or reclassified when q_stored, dU_dt, q_storage_release, or q_storage_transient_debit explains the protected-zone temperature drop without verified export, dump, or sustained boundary heat flow.
+
+
+## 7.16 NEAR_FIELD_HEAT_MODEL
+For near-field electromagnetic transfer, the minimum declared variables are:
+
+Y_nf = {T_hot, T_recv, d_spacing, d_spacing_worst, d_nf_max, M_nf, M_nf_worst, material_hot, material_recv, A_eff, q_nf, q_leak, S_spacing}
+
+where:
+- T_hot is hot-side temperature;
+- T_recv is receiver or dump-side temperature;
+- d_spacing is nominal qualified spacing or effective near-field spacing;
+- d_spacing_worst is the maximum effective spacing across roughness, vibration, thermal expansion, pressure deformation, contamination, and service drift;
+- d_nf_max is the declared maximum spacing for the qualified near-field or modal-decay envelope;
+- M_nf = d_nf_max - d_spacing and shall remain positive during nominal operation;
+- M_nf_worst = d_nf_max - d_spacing_worst and shall remain positive for noncontact near-field acceptance;
+- material_hot and material_recv identify both optical-response surfaces;
+- A_eff is effective coupling area;
+- q_nf is measured or bounded near-field heat flux;
+- q_leak is parasitic conductive, convective, or far-field leakage;
+- S_spacing is spacing integrity state.
+
+Near-field heat transfer shall not be collapsed into ordinary conduction unless the mechanism has been reclassified as contact conduction.
+
+Near-field qualification shall declare one formal spacing rule:
+- d_spacing <= lambda_peak/(2*pi*N_margin) for evanescent electromagnetic operation;
+- d_spacing <= delta_modal for modal-decay-length operation; or
+- contact-coupled operation, in which the mechanism is not claimed as noncontact near-field transfer.
+
+N_margin and delta_modal shall be measured or bounded for the selected material pair, temperature, pressure, roughness, and vibration state. d_spacing_worst and M_nf_worst shall be reported, and noncontact near-field acceptance shall require M_nf_worst > 0.
+
+## 7.17 FIELD_MODE_CLASSIFICATION_MODEL
+Field-assisted modes shall be classified before acceptance:
+
+MODE_CLASS = {SUPPORT_CONTROL, PASSIVE_TRANSPORT, CONVERSION, ACTIVE_CONTROL, ACTIVE_PUMP_CANDIDATE, ACTIVE_PUMP}
+
+where:
+- SUPPORT_CONTROL covers telemetry, modulation, interrogation, and calibration without a direct heat-removal claim;
+- PASSIVE_TRANSPORT covers heat movement down a natural gradient through a declared carrier;
+- CONVERSION covers thermal photon, magnonic, thermoelectric, thermophotovoltaic, or optical conversion with residual heat handling;
+- ACTIVE_CONTROL covers externally driven modulation that changes heat-flow conductance or routing without claiming heat pumping against a gradient;
+- ACTIVE_PUMP_CANDIDATE covers time-modulated or work-driven branches proposed as pumps before full heat-balance proof;
+- ACTIVE_PUMP covers work-driven heat movement that can exceed or oppose passive heat flow and must declare W_in, modulation law, COP, sink, and q_net_protected.
+
+RF modes default to SUPPORT_CONTROL. Microwave dielectric modes default to SUPPORT_CONTROL or calibration heating. Near-field electromagnetic modes default to PASSIVE_TRANSPORT unless time modulation, bias, or converter work input is declared. Time-modulated photonic heat-pump modes default to ACTIVE_PUMP_CANDIDATE until W_in, modulation law, sink, q_net_protected, Delta_T_protected, and closed control-volume balance are qualified. After qualification they may be promoted to ACTIVE_PUMP.
+
+## 7.18 TIME_MODULATION_MODEL
+A time-modulated photonic or electromagnetic heat-pump branch shall declare:
+
+M(t) = M_0 + Delta_M * f_mod(t, Omega_mod, phi_mod, duty_mod)
+
+where:
+- M(t) is the modulated material, optical, electromagnetic, or boundary property;
+- M_0 is the unbiased property;
+- Delta_M is modulation amplitude;
+- f_mod is the bounded waveform;
+- Omega_mod is modulation angular frequency;
+- phi_mod is modulation phase;
+- duty_mod is duty cycle when pulsed operation is used.
+
+The modulation law shall be tied to W_in, thermal response time, receiver dump, q_net_protected_sustained, and heat_burden_coverage. It shall declare A_mod, f_mod, D_mod, q_drive_heat, q_drive_heat_internal, q_drive_heat_external, and stability bounds. A time-modulated branch that does not reduce protected-zone burden after drive heat is debited shall be classified as ACTIVE_CONTROL, diagnostic modulation, or rejected. Runaway oscillation, increasing self-heating, loss of sink capacity, or q_drive_heat_internal greater than the removed protected heat shall reject ACTIVE_PUMP promotion.
+
+
+## 7.19 TRUTH_CLASSIFICATION_MODEL
+Truth classification is normative for all branch claims.
+
+TRUTH_CLASS = {SUPPORTED_PHYSICS, ENGINEERING_STANDARD_RULE, CANDIDATE_DEVICE_BRANCH, THEORY_ONLY_BRANCH, REQUIRES_MATERIAL_QUALIFICATION, REJECT_IF_UNPROVEN}
+
+MATERIAL_READINESS_TAG = {PROVEN_BASIS, CANDIDATE, DEPLOYMENT_QUALIFIED}
+
+OPERATING_REGIME_TAG = {ROOM_TEMP, CRYOGENIC, HIGH_TEMP_CANDIDATE, PRESSURE_CANDIDATE, DEPLOYMENT_QUALIFIED}
+
+Truth record:
+
+Y_truth = {
+  claim_id,
+  branch_id,
+  truth_class,
+  material_readiness_tag,
+  operating_regime_tag,
+  proof_vector_id,
+  qualification_gate,
+  promotion_status,
+  rejection_status
+}
+
+Default assignment rules:
+- Raman sensing, Stokes/anti-Stokes thermometry, and fiber optical readout default to SUPPORTED_PHYSICS with PROVEN_BASIS, but harsh embedded use remains REQUIRES_MATERIAL_QUALIFICATION until the selected host and inclusion pass the screening gates.
+- Passive solid-state heat conduction and radiative heat dumping default to SUPPORTED_PHYSICS plus ENGINEERING_STANDARD_RULE for the accounting model.
+- Phonon-polariton heat transport defaults to SUPPORTED_PHYSICS for the carrier mechanism and CANDIDATE_DEVICE_BRANCH for this project-specific embedded heat-highway construction.
+- Near-field electromagnetic heat transfer defaults to SUPPORTED_PHYSICS for the mechanism and REQUIRES_MATERIAL_QUALIFICATION for any high-pressure/high-temperature embedded stack.
+- Time-modulated photonic heat pumping defaults to THEORY_ONLY_BRANCH or CANDIDATE_DEVICE_BRANCH until closed control-volume heat-pump proof is supplied.
+- Magnon-assisted transport defaults to SUPPORTED_PHYSICS for spin-caloritronic mechanisms and REQUIRES_MATERIAL_QUALIFICATION for any high-temperature or high-pressure use.
+- Ferroaxial or chiral Raman readout defaults to SUPPORTED_PHYSICS for the source mechanism and CANDIDATE_DEVICE_BRANCH behavior within HPCS unless the selected material stack requires it.
+- Internal Raman lasers, random lasers, rare-earth ceramic gain media, and semiconductor gain media default to SUPPORTED_PHYSICS for the laser family and CANDIDATE_DEVICE_BRANCH for embedded HPCS construction.
+- Phonon-polariton coherent-emitter operation defaults to CANDIDATE_DEVICE_BRANCH and REJECT_IF_UNPROVEN until threshold, coherence, mode identity, output coupling, and residual-heat accounting pass.
+- Thermal-threshold optical beacons default to CANDIDATE_DEVICE_BRANCH and require residual-heat debit and failure masking checks.
+
+Promotion rule:
+A branch may move toward DEPLOYMENT_QUALIFIED only when its proof vector, material screening vector, operating-regime tag, heat or optical accounting, and safety gates all pass for the declared application.
+
+## 7.20 MATERIAL_COMPOSITION_AND_SELECTION_MODEL
+M_comp is the normative material-composition declaration vector. M_screen is the normative material-screening vector. M_score is the application-weighted promotion score.
+
+The material candidate shall be evaluated in this order:
+1. M_comp completeness;
+2. survivability margin;
+3. host compatibility;
+4. carrier support;
+5. damping/loss under operating envelope;
+6. optical/readout compatibility;
+7. sink or dump compatibility when heat extraction is claimed;
+8. truth/readiness/regime tagging;
+9. rejection-trigger definition.
+
+Material promotion conditions:
+- M_comp_complete == TRUE;
+- M_screen_complete == TRUE;
+- no required rejection trigger is active;
+- M_score >= application threshold;
+- truth_class != REJECT_IF_UNPROVEN;
+- material_readiness_tag != DEPLOYMENT_QUALIFIED unless the operating-regime proof vector is present.
+
+## 7.21 SUPPORTING_MATH_MODEL
+The following equations define the minimum supporting math set for material screening, heat transport, optical readout, field coupling, and internal lasing.
+
+Steady conduction through a layer:
+q_cond = k*A*(T_hot - T_cold)/L
+R_th = L/(k*A)
+Delta_T_layer = q_cond*R_th
+
+Thermal diffusion time:
+tau_diff = L^2/alpha_th
+alpha_th = k/(rho*C_p)
+
+Lumped thermal balance:
+C_th*dT/dt = q_in - q_out - q_stored_exported
+
+Radiative exchange upper-level model:
+q_rad = epsilon*sigma*A*(T_hot^4 - T_cold^4)
+
+Spectral radiative branch weighting:
+q_rad_band = integral_{lambda_1}^{lambda_2} epsilon(lambda,T)*M_bb(lambda,T)*A*d_lambda
+
+Transport attenuation:
+I_out = I_in*exp(-alpha_path*L_path)
+eta_transport = P_out/P_in
+
+Phonon-polariton route condition:
+|omega_source - omega_mode| <= Gamma_eff
+Q_mode = omega_mode/Gamma_eff
+L_prop = 1/(2*Im(k_mode))
+
+Near-field spacing guard:
+M_nf = d_limit/d_spacing_worst
+accept_near_field = TRUE only if M_nf >= 1 and S_spacing == PASS
+
+Raman temperature ratio:
+I_AS/I_S = C_cal*exp(-h*c*nu_R/(k_B*T))
+T = (h*c*nu_R/k_B)/ln(C_cal*I_S/I_AS)
+
+Raman pressure/strain feature model:
+Delta_nu_i = a_i*Delta_T + b_i*Delta_P + c_i*epsilon_mech + d_i*damage_index
+
+Optical readout heating:
+q_readout_internal = P_probe_abs_internal + P_pump_abs_internal - P_optical_escape_from_protected
+q_readout_external = P_probe_abs_external + P_pump_abs_external
+
+Internal lasing threshold model:
+P_pump_abs >= P_threshold
+G_net > L_total
+P_out_laser >= P_out_laser_min
+q_laser_residual_internal <= q_laser_residual_internal_max
+
+Heat burden coverage:
+heat_burden_coverage = q_net_protected_sustained/q_source
+
+Active pump coefficients:
+COP_protected = q_net_protected_sustained/W_in
+COP_device = q_removed_to_sink/W_in
+
+Material promotion score:
+M_score = w_surv*M_survivability + w_host*M_host_compatibility + w_carrier*M_carrier_support + w_loss*M_low_loss + w_readout*M_readout_quality + w_sink*M_sink_interface + w_cycle*M_cycling_stability
+
+All math symbols shall be unit-typed in the proof record. Any equation used outside its valid geometry, temperature range, pressure range, or optical band shall be tagged REQUIRES_MATERIAL_QUALIFICATION or REJECT_IF_UNPROVEN.
+
+## 7.22 MATERIAL_BRANCH_ASSIGNMENT_MODEL
+The following assignment table defines default branch usage before application-specific screening:
+
+| Branch | Preferred material families | Candidate material families | Reject-first families |
+| --- | --- | --- | --- |
+| Passive heat spreading | diamond, SiC, AlN, graphite where atmosphere permits | sapphire, refractory metals with barriers | low-conductivity TBC-only layers as heat highways |
+| Thermal barrier / protected witness host | YSZ, HfO2/ZrO2, alumina, spinel | rare-earth oxides with screening | unsealed carbon in oxidizing hot zones |
+| Mid-IR polariton transport | SiC, hBN/BN, polar oxides/nitrides | AlN, sapphire, HfO2/ZrO2 after spectrum proof | nonpolar or opaque phases without IR-active carrier proof |
+| Optical window/access | sapphire, diamond, spinel, selected alumina | SiC where band-compatible | opaque thermal-barrier coatings without window path |
+| Raman marker | diamond, sapphire/alumina, selected oxides/nitrides | doped ceramics and rare-earth oxides | fluorescent or thermally glowing materials that obscure Raman feature |
+| Internal Raman laser | diamond, Raman-active oxide/nitride crystal | ceramic Raman inserts, waveguide strips | media without thresholded Stokes gain proof |
+| Rare-earth laser/PL marker | YAG:RE, Y2O3:RE, Lu2O3:RE | doped alumina or other oxide after quench test | dopant systems with diffusion/quenching under target envelope |
+| Magnonic readout/control | YIG/ferrite/garnet with ordering margin | substituted garnets | materials near magnetic phase collapse |
+| Thermal-source IR emitter | SiC, W, Mo, Ta, graphite in compatible atmosphere | GST-tuned SiC stacks | emitters that back-heat protected zone without dump |
+| TPV receiver | spectrum-matched protected semiconductor receiver | external protected receiver stack | receiver without residual heat dump |
+
+Assignment guard:
+A material may serve multiple roles only if each role passes its own M_comp, M_screen, M_score, truth label, and residual-heat accounting gate.
+
+Rejection rule:
+A branch labeled REJECT_IF_UNPROVEN shall fail conformance if the declared proof vector is absent, incomplete, or not tied to the same material, geometry, operating regime, and measurement envelope.
+
+# 8. ALGORITHMIC_FORMALISM
+## 8.1 STATE_RECONSTRUCTION_ALGORITHM
+The canonical reconstruction procedure is:
+1. acquire raw spectrum and instrument metadata;
+2. subtract bounded background;
+3. identify qualified marker modes;
+4. fit omega_i, gamma_i, A_i, Split_i, and ROA_i when available;
+5. apply thermal, pressure, strain, and damage calibration coefficients;
+6. evaluate measurement quality gates;
+7. compute X_est and U_bound;
+8. return the state vector or reject the measurement.
+
+## 8.2 INFRARED_OPERATION_MODES
+The infrared branch defines the following operating modes:
+- IR_MODE_001_RAMAN_SHIFT: pressure, strain, or phase-state inference from Raman peak shift;
+- IR_MODE_002_RAMAN_LINEWIDTH: damage, disorder, thermal degradation, or coupling loss inference from linewidth growth;
+- IR_MODE_003_STOKES_ANTISTOKES: temperature inference from Stokes/anti-Stokes intensity ratio;
+- IR_MODE_004_SIGNED_POLARIZATION: domain or chiral-state inference from opposite polarization or circular channels;
+- IR_MODE_005_ABSORPTION_TRANSMISSION: process-state or material-state inference from absorption, transmission, or reflection changes;
+- IR_MODE_006_DISTRIBUTED_BACKSCATTER: thermal mapping along a fiber path using distributed optical backscatter;
+- IR_MODE_007_REFERENCE_DRIFT: correction using a reference line, reference inclusion, or stable return channel.
+
+Each operating mode shall declare whether it is a live sensor mode, retained witness mode, identity/provenance mode, or rejection-only health check.
+
+## 8.3 IR_POWER_AND_HEATING_CONTROL
+Laser interrogation shall preserve the measured state. The local laser load shall satisfy:
+
+DeltaT_laser <= DeltaT_allowed
+
+where DeltaT_laser is laser-induced local heating and DeltaT_allowed is the maximum readout-induced temperature error allowed by the calibration envelope.
+
+The power-control procedure is:
+1. start below the qualified power level;
+2. acquire reference background;
+3. acquire the marker response;
+4. test for power-dependent peak shift, linewidth growth, or irreversible change;
+5. reduce power or reject the measurement if laser-induced drift exceeds threshold.
+
+## 8.4 STOKES_ANTISTOKES_TEMPERATURE_MODEL
+When Stokes/anti-Stokes temperature readout is used, the accepted model shall include a calibrated instrument factor:
+
+I_AS/I_S = K_inst * exp(-h*c*nu_m/(kB*T))
+
+where:
+- I_AS is anti-Stokes intensity;
+- I_S is Stokes intensity;
+- K_inst is the calibrated instrument and collection factor;
+- nu_m is the Raman shift in cm^-1;
+- h*c*nu_m converts wavenumber to energy;
+- kB is Boltzmann constant;
+- T is absolute temperature.
+
+The implementation shall not use the ratio as an absolute thermometer unless detector response, filter transmission, path loss, and wavelength-dependent collection are calibrated.
+
+## 8.5 QUALITY_GATE
+A measurement shall be rejected when any required condition fails:
+- marker mode not detected;
+- peak fit residual exceeds threshold;
+- background exceeds threshold;
+- optical path attenuation exceeds threshold;
+- polarization leakage exceeds threshold for signed response;
+- inferred state lies outside the qualified envelope;
+- host/inclusion coupling condition is invalid;
+- thermal glow or fluorescence dominates the signal.
+
+## 8.6 PRESSURE_STRAIN_SEPARATION
+Pressure and strain shall not be treated as identical when the host imposes anisotropic loading.
+
+The minimum separation rule is:
+- hydrostatic calibration may be used for pressure-cell-style applications;
+- nonhydrostatic host loading requires at least one anisotropy-sensitive feature or a host mechanics model;
+- mode splitting shall be treated as evidence of anisotropic stress or symmetry lowering, not as scalar pressure alone.
+
+## 8.7 TEMPERATURE_COMPENSATION
+Temperature compensation shall use one of the following methods:
+- independent temperature measurement;
+- dual-mode optical calibration with different pressure and temperature coefficients;
+- reference inclusion with weak pressure coefficient;
+- time-separated calibration when pressure is constant;
+- qualified thermal model of the host and inclusion.
+
+A pressure estimate shall not be accepted from a single thermally sensitive mode unless temperature is independently bounded.
+
+## 8.8 DAMAGE_INDEX
+The damage or disorder index may be computed from normalized linewidth growth, amplitude loss, irreversible peak shift, or mode disappearance.
+
+A minimum model is:
+
+D = clamp((gamma_i - gamma_i_ref)/gamma_i_ref, 0, D_max)
+
+D is a diagnostic indicator unless separately correlated with physical crack length, porosity, dislocation density, or fatigue life.
+
+## 8.9 DOMAIN_STATE_OPERATION
+If domain readout is used, the optical sign shall be handled as:
+
+S_opt = sign(ROA_i_obs)
+
+only after correction for instrument handedness and polarization leakage.
+
+Domain readout shall be rejected when:
+- multiple domains average to near-zero contrast;
+- optical focus spans multiple domain regions without a mixing model;
+- the material has crossed a domain-randomizing thermal or pressure boundary;
+- the optical channel is not polarization-calibrated.
+
+
+
+## 8.10 INTERNAL_LASING_OPERATION_MODES
+LASER_MODE_001_SOLID_STATE_RAMAN_LASER:
+  Pump light couples into a Raman-active solid and generates coherent Stokes output through stimulated Raman scattering. TRUTH_CLASS: SUPPORTED_PHYSICS for Raman lasing; CANDIDATE_DEVICE_BRANCH for embedded HPCS deployment. MATERIAL_READINESS_TAG: CANDIDATE until host survivability and residual-heat gates pass.
+
+LASER_MODE_002_RANDOM_LASER_COMPOSITE:
+  Pump energy excites gain-doped scattering material and multiple scattering supplies feedback for laser-like output. TRUTH_CLASS: SUPPORTED_PHYSICS for random-laser mechanism; CANDIDATE_DEVICE_BRANCH for harsh embedded use. MATERIAL_READINESS_TAG: CANDIDATE until repeatability, output classification, and host reaction gates pass.
+
+LASER_MODE_003_RARE_EARTH_CERAMIC_MICROCAVITY:
+  Rare-earth-doped ceramic or oxide inclusion emits through microcavity, waveguide, or resonant inclusion feedback. TRUTH_CLASS: SUPPORTED_PHYSICS for rare-earth gain media; CANDIDATE_DEVICE_BRANCH for this embedded construction. MATERIAL_READINESS_TAG: CANDIDATE until quenching, pressure deformation, cycling, and residual-heat gates pass.
+
+LASER_MODE_004_SEMICONDUCTOR_OR_QUANTUM_WELL_GAIN_LAYER:
+  Protected semiconductor or quantum-well layer emits only under qualified pump and thermal survivability conditions. TRUTH_CLASS: SUPPORTED_PHYSICS for semiconductor gain; REQUIRES_MATERIAL_QUALIFICATION for high-temperature/high-pressure embedding. MATERIAL_READINESS_TAG: CANDIDATE until junction survivability and heat-dump rules pass.
+
+LASER_MODE_005_PHONON_POLARITON_COHERENT_EMITTER_CANDIDATE:
+  Polariton coherent emission remains candidate until threshold, coherence, mode identity, and output coupling are proven. TRUTH_CLASS: CANDIDATE_DEVICE_BRANCH and REJECT_IF_UNPROVEN. MATERIAL_READINESS_TAG: CANDIDATE only; DEPLOYMENT_QUALIFIED is forbidden until proof vector passes.
+
+LASER_MODE_006_THERMAL_THRESHOLD_OPTICAL_BEACON:
+  Optical emission activates only after a declared thermal, pressure, strain, damage, or exposure threshold is crossed. TRUTH_CLASS: CANDIDATE_DEVICE_BRANCH. MATERIAL_READINESS_TAG: CANDIDATE until threshold, hysteresis, masking, and residual-heat gates pass.
+
+## 8.11 INTERNAL_LASING_ACCEPTANCE_ALGORITHM
+An internal-lasing claim is accepted only if the following procedure passes:
+
+1. declare laser_mode_id;
+2. declare gain_medium_id;
+3. declare pump_class and pump path;
+4. declare feedback_type;
+5. declare output path;
+6. declare P_pump_abs and P_threshold;
+7. declare G_net and L_total or equivalent family-specific threshold proof;
+8. verify P_pump_abs >= P_threshold;
+9. verify G_net > L_total or equivalent threshold proof;
+10. verify output_path_status == OPEN;
+11. verify sink_status != FAILED;
+12. verify temperature survivability;
+13. verify pressure survivability;
+14. debit q_laser_residual_internal and q_laser_residual_external;
+15. reject heat-extraction benefit unless emitted power exits the protected zone or reaches a declared receiver outside it;
+16. emit LASER_EMISSION_RECORD.
+
+## 8.12 INTERNAL_LASING_REJECTION_ALGORITHM
+Reject or reclassify the internal-lasing claim when:
+- gain medium is not declared;
+- pump path is not declared;
+- feedback mechanism is not declared;
+- threshold condition is absent or failed;
+- output path is blocked;
+- thermal quenching prevents gain;
+- pressure deformation invalidates feedback;
+- random laser output is misclassified as directional cavity laser output;
+- phonon-polariton emission lacks coherence or mode proof;
+- residual laser heat is not debited.
+
+## 8.13 HEAT_EXTRACTION_OPERATION_MODES
+The heat-extraction branch defines the following operating modes:
+- HEAT_MODE_001_PASSIVE_SOLID_STATE_EXTRACTION: heat moves from hot zone to colder sink through solid transport;
+- HEAT_MODE_002_PHONON_POLARITON_HEAT_HIGHWAY: infrared-active polar material carries heat through phonon-polariton modes;
+- HEAT_MODE_003_THERMAL_IR_RADIATIVE_DUMP: hot-side heat is emitted or coupled as infrared radiation toward a radiator, converter, or sink;
+- HEAT_MODE_004_THERMOPHOTONIC_ASSISTED_HEAT_PUMP: external work assists photon-mediated heat transfer;
+- HEAT_MODE_005_CHIRAL_FERROAXIAL_HEAT_PATH_READOUT: signed optical response verifies route, domain, or path condition;
+- HEAT_MODE_006_DAMAGE_INTERRUPTION_PATH: loss or scattering of the transport/readout path indicates crack, delamination, or damage;
+- HEAT_MODE_007_THRESHOLD_THERMAL_BEACON: extracted or transported heat activates a marker only after a defined thermal threshold.
+
+Heat-mode truth labels: HEAT_MODE_001 and HEAT_MODE_003 default to SUPPORTED_PHYSICS plus ENGINEERING_STANDARD_RULE; HEAT_MODE_002 defaults to SUPPORTED_PHYSICS for carrier physics and CANDIDATE_DEVICE_BRANCH for embedded HPCS construction; HEAT_MODE_004 defaults to CANDIDATE_DEVICE_BRANCH until active work-input and closed control-volume heat-pump proof pass; HEAT_MODE_005 is SUPPORT/READOUT and shall not be counted as heat removal by itself; HEAT_MODE_006 and HEAT_MODE_007 are CANDIDATE_DEVICE_BRANCH until correlated to damage or threshold proof.
+
+## 8.14 SPECTRAL_OPERATION_MODES
+The spectral branch defines the following operating modes:
+- SPEC_MODE_001_MICROWAVE_ACTIVATION_CALIBRATION: controlled heating or calibration perturbation;
+- SPEC_MODE_002_MILLIMETER_WAVE_DIELECTRIC_PROBING: dielectric or surface/subsurface state sensing;
+- SPEC_MODE_003_TERAHERTZ_COLLECTIVE_MODE_PROBING: low-energy phonon or collective-mode interrogation;
+- SPEC_MODE_004_FAR_IR_PHONON_COUPLING: direct coupling to infrared-active phonon modes;
+- SPEC_MODE_005_MID_IR_POLARITON_HEAT_EXTRACTION: primary phonon-polariton and radiative heat-extraction lane;
+- SPEC_MODE_006_NEAR_IR_FIBER_READOUT_PUMP: fiber readout, Raman, pump, or reference lane;
+- SPEC_MODE_007_VISIBLE_DIAGNOSTIC: lab alignment, surface Raman, or photoluminescence diagnostics;
+- SPEC_MODE_008_UV_DEFECT_SURFACE_DIAGNOSTIC: surface or defect interrogation only;
+- SPEC_MODE_009_XRAY_GAMMA_INSPECTION_ONLY: external inspection and tomography, not heat extraction.
+
+Spectral-mode truth labels: microwave, millimeter-wave, visible, UV, X-ray, and gamma modes default to ENGINEERING_STANDARD_RULE for support or diagnostic use; far-IR and mid-IR phonon/polariton branches default to SUPPORTED_PHYSICS plus REQUIRES_MATERIAL_QUALIFICATION for the selected stack; near-IR readout and pump modes default to SUPPORTED_PHYSICS for optical access and CANDIDATE_DEVICE_BRANCH when used as embedded pump infrastructure.
+
+## 8.15 HEAT_EXTRACTION_ACCEPTANCE_ALGORITHM
+A heat-extraction claim shall pass the following procedure:
+1. identify the hot-side source and maximum heat load;
+2. identify the carrier as phonon, phonon-polariton, infrared radiation, electronic carrier, or assisted pump channel;
+3. identify the heat sink or pump dump;
+4. declare passive gradient or external work input;
+5. define CV_protected, A_boundary, measurement points, and steady-state or transient acceptance window;
+6. compute or measure q_source, q_boundary_out, q_exported, q_stored, dU_dt, Delta_T_protected, eta_heat_passive, and saturation threshold;
+7. assign readout-induced heating into q_readout_internal or q_readout_external;
+8. verify optical or thermal readout of path integrity;
+9. compare against the unmodified host baseline using the baseline equivalence rule;
+10. reject the claim if heat is only redistributed inside a closed hot region without dump, sink, radiator, work-driven removal, closed control-volume balance, or protected-zone temperature reduction.
+
+## 8.16 HEAT_PATH_READOUT_ALGORITHM
+The heat-path readout procedure is:
+1. acquire reference heat-path response at known load;
+2. apply operating heat load or observe live load;
+3. measure Raman shift, infrared return, thermal emission, polarization contrast, or path attenuation;
+4. compare to reference and saturation thresholds;
+5. separate thermal load from damage-induced loss when possible;
+6. return H_path as INTACT, DEGRADED, SATURATED, INTERRUPTED, or UNQUALIFIED.
+
+
+## 8.17 FIELD_ASSISTED_OPERATION_MODES
+The field-assisted branch defines the following operating modes and mode classes:
+- FIELD_MODE_001_RF_TELEMETRY_MODULATION: SUPPORT_CONTROL; radio-frequency signaling, state modulation, or embedded witness interrogation;
+- FIELD_MODE_002_MICROWAVE_MAGNETIC_RESONANCE_CONTROL: ACTIVE_CONTROL when magnetic thermal-valve behavior is qualified, otherwise SUPPORT_CONTROL;
+- FIELD_MODE_003_MAGNON_ASSISTED_HEAT_SPIN_TRANSPORT: PASSIVE_TRANSPORT or CONVERSION only when magnetic phase stability and magnon response are qualified;
+- FIELD_MODE_004_NEAR_FIELD_ELECTROMAGNETIC_HEAT_TRANSFER: PASSIVE_TRANSPORT unless external modulation or bias creates ACTIVE_CONTROL or ACTIVE_PUMP operation;
+- FIELD_MODE_005_PHONON_POLARITON_ELECTROMAGNETIC_COUPLING: PASSIVE_TRANSPORT or ACTIVE_CONTROL depending on whether the coupling is driven;
+- FIELD_MODE_006_THERMOPHOTOVOLTAIC_RECEIVER_CONVERSION: CONVERSION; thermal photon reception and partial conversion to electrical output with residual heat dumping;
+- FIELD_MODE_007_TIME_MODULATED_PHOTONIC_HEAT_PUMP: ACTIVE_PUMP_CANDIDATE by default; promotion to ACTIVE_PUMP is allowed only when W_in, bounded modulation law, sink, receiver dump, q_net_protected_sustained, heat_burden_coverage, Delta_T_protected, and closed control-volume balance are qualified;
+- FIELD_MODE_008_FLUCTUATION_MEDIATED_QUANTUM_THERMAL_CHANNEL: PASSIVE_TRANSPORT or ACTIVE_CONTROL between material bodies using qualified electromagnetic modes;
+- FIELD_MODE_009_CASIMIR_SPACING_CONSTRAINT_MANAGEMENT: SUPPORT_CONTROL for spacing and surface-force management in near-field thermal stacks.
+
+Field-mode truth labels: FIELD_MODE_001 and FIELD_MODE_009 are ENGINEERING_STANDARD_RULE support modes; FIELD_MODE_003, FIELD_MODE_004, FIELD_MODE_005, and FIELD_MODE_006 are SUPPORTED_PHYSICS plus REQUIRES_MATERIAL_QUALIFICATION; FIELD_MODE_007 is THEORY_ONLY_BRANCH or CANDIDATE_DEVICE_BRANCH until active heat-pump proof passes; FIELD_MODE_008 is SUPPORTED_PHYSICS only as fluctuation-mediated thermal transport between material bodies and rejects vacuum-energy interpretation.
+
+## 8.18 FIELD_ASSISTED_HEAT_ACCEPTANCE_ALGORITHM
+A field-assisted heat-transport claim shall pass the following procedure:
+1. identify the field band and operating frequency;
+2. identify the coupled carrier;
+3. assign the field mode class;
+4. identify heat source and protected region;
+5. identify the unmodified host baseline;
+6. identify heat sink, receiver, converter, radiator, coolant interface, or pump dump;
+7. declare W_in when heat pumping, time modulation, or active conductance control is used;
+8. measure or bound q_removed_hot_side, q_exported, q_parasitic_internal, q_parasitic_external, q_readout_internal, q_readout_external, and dU_dt;
+9. compute q_storage_release = max(-dU_dt,0);
+10. compute q_net_protected and q_net_protected_sustained with storage accumulation and storage release debited;
+11. compute heat_burden_coverage = q_net_protected_sustained / q_source;
+12. compute Delta_T_protected = T_protected_base - T_protected_active;
+13. compute COP_protected and COP_device when active pumping is claimed;
+14. verify saturation, survivability, and baseline equivalence limits;
+15. reject the claim when q_net_protected_sustained <= 0, heat_burden_coverage <= 0, Delta_T_protected <= 0, the control-volume balance is not closed, or heat is merely redistributed or discharged from storage inside the protected region.
+
+## 8.19 NEAR_FIELD_OPERATION_ALGORITHM
+The near-field operation procedure is:
+1. qualify hot-side and receiver-side material optical response;
+2. establish spacing, spacer, contact, or effective near-field geometry;
+3. declare d_spacing, d_spacing_worst, d_nf_max, M_nf, M_nf_worst, roughness bound, vibration bound, thermal-expansion bound, pressure-deformation bound, and the spacing acceptance condition as sub-wavelength, modal-decay-length, or contact-coupled operation;
+4. require M_nf > 0 and M_nf_worst > 0 for noncontact near-field claims;
+5. measure baseline far-field, conduction, and parasitic leakage terms;
+6. measure near-field heat flux q_nf within the qualified spacing envelope;
+7. verify receiver-side dump, converter, radiator, or residual-heat path;
+8. monitor S_spacing for vibration, contamination, collapse, roughness drift, or thermal expansion drift;
+9. reject near-field operation when M_nf <= 0, M_nf_worst <= 0, spacing integrity fails, receiver dump fails, or sustained protected-zone heat removal is outside envelope.
+
+## 8.20 MAGNONIC_OPERATION_ALGORITHM
+The magnonic operation procedure is:
+1. verify magnetic phase stability at operating temperature and pressure;
+2. declare the magnonic stability margin for temperature, pressure, and applied field;
+3. identify magnetic resonance or spin-wave band;
+4. couple microwave or thermal gradient into the magnonic layer;
+5. separate dielectric heating from magnon-mediated response;
+6. measure thermal-state, spin-caloritronic, optical, or electrical readout;
+7. reject operation when magnetic order, coupling, or readout is not stable within the envelope or when ordinary dielectric heating accounts for the response.
+
+## 8.21 THERMOPHOTOVOLTAIC_RESIDUAL_HEAT_ALGORITHM
+A thermophotovoltaic or receiver-conversion branch shall pass the following procedure:
+1. identify received thermal photon band and receiver band edge or absorption band;
+2. measure or bound converted electrical output P_elec;
+3. measure or bound residual heat q_residual at the receiver;
+4. declare residual heat dump path away from the protected region;
+5. reject conversion as heat extraction when receiver back-heating or re-radiation increases protected-zone thermal burden.
+
+## 8.22 TIME_MODULATED_PHOTONIC_OPERATION_ALGORITHM
+A time-modulated photonic heat-control branch shall pass the following procedure:
+1. declare M(t), Delta_M, Omega_mod, phi_mod, duty_mod, and waveform bounds;
+2. declare W_in and drive-location relative to the protected region;
+3. measure passive baseline heat flow;
+4. measure driven heat flow and protected-zone temperature response;
+5. compute q_net_protected_sustained, heat_burden_coverage, COP_protected, and COP_device when active pumping is claimed;
+6. classify the branch as ACTIVE_PUMP_CANDIDATE until closed control-volume balance, sink, work input, and baseline-equivalent protected-zone cooling are demonstrated;
+7. classify the branch as ACTIVE_CONTROL when heat flow is only gated or redirected;
+8. classify the branch as ACTIVE_PUMP only when protected-zone heat burden is reduced against the passive baseline with declared work input, sink, and closed heat balance.
+
+# 9. DEPENDENCIES
+The system depends on:
+- active material stability under the target temperature and pressure envelope;
+- host material compatibility;
+- protective barrier compatibility;
+- calibrated Raman or optical marker modes;
+- optical access path survivability;
+- instrument wavelength stability;
+- spectral calibration stability;
+- polarization calibration when signed response is used;
+- thermal compensation;
+- pressure/strain calibration;
+- repeatability under cycling;
+- infrared laser wavelength stability;
+- laser power stability;
+- detector response stability;
+- fiber/window transmission stability;
+- reference-channel availability for drift correction;
+- heat sink or pump dump availability for heat-extraction operation;
+- heat transport carrier qualification;
+- heat flux calibration and saturation threshold;
+- spectral band qualification for heat transport and readout;
+- background rejection for fluorescence, fiber Raman background, thermal glow, and host-window emission;
+- field-source stability for RF, microwave, magnetic, optical, or time-modulated operation;
+- magnetic phase stability for magnon-assisted branches;
+- near-field spacing control for evanescent thermal channels;
+- thermophotovoltaic receiver qualification when conversion is used;
+- q_net measurement for field-assisted heat-removal claims;
+- parasitic field-heating measurement for active or driven-control branches.
+
+No dependency may be treated as qualified unless it is measured or bounded for the target host and installation form.
+
+# 10. CONSTRAINTS
+The system shall obey the following constraints:
+- the active inclusion shall remain solid-state during qualified operation;
+- the active inclusion shall not chemically poison or weaken the host component beyond design limits;
+- the active inclusion shall not require electrical feedthroughs for passive operation;
+- the readout path shall not require destructive sectioning unless the application is post-event forensic inspection;
+- pressure, temperature, strain, and damage shall not be collapsed into a single scalar unless the application only requires a threshold indicator;
+- chiral or signed response shall not be claimed unless opposite-channel calibration is performed;
+- permanent witness behavior shall not be claimed from reversible mode shifts alone;
+- material selection shall prioritize survivability before chiral enhancement;
+- calibration curves shall include uncertainty bounds;
+- operating envelopes shall be explicit;
+- infrared laser power shall remain below damage, local-heating, phase-change, and domain-erasure thresholds;
+- infrared readout shall include a reference or background channel when used in high-temperature environments;
+- wavelength selection shall be justified by a Raman-efficiency, fluorescence, absorption, detector, and optical-path trade study;
+- fiber-delivered operation shall qualify the fiber, connector, feedthrough, window, and coating as part of the operating envelope;
+- heat extraction shall not be claimed unless a heat sink, radiator, converter, coolant interface, or pump dump is declared;
+- active heat pumping shall not be claimed unless external work input and COP are declared;
+- phonon-polariton transport shall not be claimed unless the material supports the relevant infrared-active mode and the coupling band is declared;
+- microwave operation shall be treated as heating, activation, or calibration unless a qualified extraction path is provided;
+- X-ray and gamma operation shall be limited to inspection and shall not be used as a thermal-management lane;
+- RF operation shall be treated as telemetry, modulation, or control unless a qualified heat-removal path is declared;
+- microwave operation shall separate useful magnetic or magnonic response from ordinary dielectric heating;
+- near-field electromagnetic heat transfer shall declare spacing, surface condition, and receiver dump;
+- quantum-field terminology shall be limited to fluctuation-mediated thermal transport between material bodies and shall not be used to claim vacuum energy extraction;
+- time-modulated photonic heat pumping shall declare work input, modulation law, q_net_protected_sustained, protected-zone cooling metric, and receiver dump;
+- thermophotovoltaic conversion shall distinguish converted electrical output from residual dumped heat;
+- field-assisted cooling shall require q_net_protected_sustained > 0 and Delta_T_protected > 0 for the protected region against the unmodified host baseline;
+- heat-extraction trials shall define CV_protected, boundary geometry, measurement points, and averaging interval before claiming protected-zone cooling;
+- transient cooling shall not be accepted as heat extraction unless dU_dt and q_stored are measured or bounded;
+- baseline comparison shall use equivalent geometry, heat load, sink condition, ambient state, pressure state, strain state, and measurement window;
+- readout-induced heating shall be counted as internal or external parasitic heat according to deposition location;
+- thermophotovoltaic conversion shall include a residual heat dump and shall not count converted electrical output as removed heat unless receiver heat is also rejected away from the protected region;
+- magnon-assisted operation shall require magnetic phase stability margin through the full operating envelope;
+- RF operation shall remain SUPPORT_CONTROL unless carrier, sink, and protected-zone cooling metric are separately qualified.
+
+
+C-HPCS-035: Internal lasing shall require declared gain medium, pump path, feedback mechanism, threshold condition, output path, residual-heat dump, and loss budget.
+
+C-HPCS-036: Thermal-assisted IR pumping shall be treated as broadband pump or illumination unless spectral filtering, gain, feedback, and threshold conditions are declared.
+
+C-HPCS-037: Random-laser output shall not be represented as stable directional cavity-laser output unless directional cavity feedback is separately proven.
+
+C-HPCS-038: Phonon-polariton coherent-emitter operation shall remain candidate until coherence, threshold, mode identity, and output coupling are verified.
+
+C-HPCS-039: Laser output energy shall not be double-counted as removed heat unless it exits the protected zone or reaches a declared receiver outside the protected zone.
+
+C-HPCS-040: Residual laser heat shall be debited in protected-zone and whole-device heat accounting.
+
+C-HPCS-041: Internal laser activation shall not mask thermal runaway, pressure damage, optical darkening, host reaction, or heat-path saturation.
+
+
+REQ_HPCS_010_SINGLE_ACCOUNTING_SOURCE: Section 7.15 shall govern all protected-zone heat-removal acceptance equations.
+REQ_HPCS_011_INTERNAL_LASER_OUTPUT_GUARD: internal lasing shall require declared minimum usable output and residual-heat limits.
+REQ_HPCS_012_MATERIAL_SCORING: material promotion shall require an explicit application-weighted screening score or equivalent acceptance matrix.
+
+
+REQ_HPCS_013_TRUTH_LABELS: each physics branch, device branch, material family, and deployment claim shall carry a truth class, material-readiness tag, and operating-regime tag.
+REQ_HPCS_014_MATERIAL_COMPOSITION_DECLARATION: each material candidate shall declare M_comp before promotion.
+REQ_HPCS_015_SUPPORTING_MATH_UNIT_TYPING: each supporting equation used for qualification shall declare units, valid geometry, valid band, and operating envelope.
+REQ_HPCS_016_MULTIROLE_MATERIAL_GATING: a material serving multiple roles shall pass separate gates for each role.
+
+REQ_HPCS_014_CANDIDATE_BRANCH_GUARD: candidate branches shall not be represented as deployment-qualified until the declared proof vector and material screening gates pass.
+
+REQ_HPCS_015_THEORY_BRANCH_GUARD: theory-only branches shall not be used as device claims without promotion through experimental or construction proof.
+
+REQ_HPCS_016_REGIME_TAG_GUARD: room-temperature, high-temperature, high-pressure, cryogenic, and deployment-qualified tags shall be assigned separately and shall not be inferred from one another.
+
+# 11. FAILURE_MODES
+FM_001_PHASE_TRANSITION_EXIT: the active material leaves the qualified phase during temperature or pressure exposure.
+
+FM_002_DOMAIN_RANDOMIZATION: domain sign becomes unstable or averages out during thermal or mechanical cycling.
+
+FM_003_CHEMICAL_REACTION: inclusion or barrier reacts with the host and changes the optical response.
+
+FM_004_DIFFUSION_DRIFT: elements diffuse across the interface and alter calibration.
+
+FM_005_OPTICAL_PATH_LOSS: host opacity, coating damage, fouling, or cracking blocks readout.
+
+FM_006_FLUORESCENCE_DOMINANCE: background emission overwhelms Raman or polarization response.
+
+FM_007_THERMAL_GLOW_DOMINANCE: blackbody or hot-surface emission corrupts high-temperature optical readout.
+
+FM_008_MECHANICAL_DECOUPLING: inclusion cracks away from the host and no longer reports host stress.
+
+FM_009_PRESSURE_TEMPERATURE_CROSSTALK: temperature and pressure produce indistinguishable shifts without compensation.
+
+FM_010_NONHYDROSTATIC_MISREAD: anisotropic stress is incorrectly interpreted as scalar pressure.
+
+FM_011_POLARIZATION_LEAKAGE: instrument or optical path mixes circular channels and corrupts signed response.
+
+FM_012_CALIBRATION_AGING: cycling changes coefficients beyond accepted bounds.
+
+FM_013_HOST_WEAKENING: inclusion geometry creates a flaw, stress riser, or failure initiator.
+
+FM_014_FALSE_HISTORY_CLAIM: reversible sensor behavior is incorrectly interpreted as retained exposure history.
+
+FM_015_IR_LASER_HEATING: interrogation beam heats the inclusion enough to corrupt temperature, pressure, or phase-state inference.
+
+FM_016_IR_PATH_DARKENING: fiber, window, coating, or host path darkens or absorbs after thermal, pressure, radiation, or chemical exposure.
+
+FM_017_FIBER_BACKGROUND_CONTAMINATION: Raman or fluorescence background from the fiber or window is misidentified as the active inclusion response.
+
+FM_018_WAVELENGTH_DRIFT: laser wavelength drift moves the apparent spectral features or changes the excitation condition beyond calibration bounds.
+
+FM_019_REFERENCE_CHANNEL_LOSS: reference signal is absent, preventing correction for path loss, detector drift, or thermal background.
+
+FM_020_POWER_DEPENDENT_RESPONSE: measured response changes with readout power, indicating local heating, nonlinear response, or damage.
+
+
+FM_021_NO_HEAT_SINK: heat is redistributed locally but not removed because no sink, radiator, converter, or pump dump is available.
+
+FM_022_TRANSPORT_SATURATION: heat load exceeds the path capacity and the transport layer saturates or overheats.
+
+FM_023_CARRIER_MODE_MISMATCH: selected wavelength or frequency does not couple into the declared carrier mode.
+
+FM_024_POLARITON_DAMPING: temperature, pressure, defects, or geometry damp the phonon-polariton path before useful heat reaches the sink.
+
+FM_025_RADIATIVE_REABSORPTION: infrared radiation is reabsorbed inside the hot region instead of escaping to the dump.
+
+FM_026_ASSISTED_PUMP_LOSS_EXCESS: work-driven heat-pump stage produces more parasitic heat than useful extracted heat.
+
+FM_027_PATH_DELAMINATION: thermal transport layer separates from host, pickup, or sink interface.
+
+FM_028_FALSE_COOLING_INDICATION: readout indicates path activity but net heat removal from the protected region is not achieved.
+
+
+FM_029_RF_PARASITIC_HEATING: RF control or telemetry deposits heat without producing useful heat removal or valid state readout.
+
+FM_030_MICROWAVE_DIELECTRIC_OVERLOAD: microwave operation heats the host or inclusion beyond the calibration or survivability envelope.
+
+FM_031_MAGNON_PHASE_LOSS: magnetic order or magnon propagation collapses under operating temperature, pressure, or field conditions.
+
+FM_032_NEAR_FIELD_SPACING_FAILURE: vibration, contamination, thermal expansion, roughness, or contact collapse destroys the near-field coupling envelope.
+
+FM_033_FIELD_COUPLING_MISMATCH: applied field does not couple to the declared carrier or couples mainly to parasitic loss.
+
+FM_034_TPV_RECEIVER_SATURATION: thermophotovoltaic or receiver layer saturates, overheats, lacks residual heat dumping, or re-radiates heat back into the protected region.
+
+FM_035_TIME_MODULATION_LOSS_EXCESS: active photonic modulation adds more internal heat or loss than it removes from the protected region.
+
+FM_036_FALSE_QUANTUM_FIELD_CLAIM: fluctuation-mediated terminology is used without material bodies, temperature difference or work input, coupling geometry, and heat-flux measurement.
+
+FM_037_BASELINE_COMPARISON_ABSENT: heat extraction is reported without comparison to the unmodified host baseline.
+
+FM_038_PROTECTED_ZONE_BACKHEATING: receiver, converter, control field, or residual heat path heats the protected region while appearing active at the transport layer.
+
+FM_039_MODE_CLASS_MISLABEL: support, diagnostic, conversion, or active-control operation is mislabeled as active heat pumping.
+
+FM_040_MODULATION_LAW_UNDEFINED: active photonic or electromagnetic pumping is claimed without declaring the modulation law and drive variables.
+
+
+FM_041_TRANSIENT_STORAGE_FALSE_EXTRACTION: apparent protected-zone cooling is caused by temporary heat storage rather than sustained export to a sink or pump dump.
+
+FM_042_CONTROL_VOLUME_UNDEFINED: heat-removal accounting is reported without CV_protected, boundary, volume, measurement points, and averaging interval.
+
+FM_043_BASELINE_NON_EQUIVALENCE: active and baseline trials use different geometry, load, sink, ambient, pressure, strain, or time-window conditions.
+
+FM_044_READOUT_PARASITIC_UNCOUNTED: laser, RF, microwave, reference-channel, or detector-adjacent heating is not assigned to internal or external parasitic terms.
+
+FM_045_NEAR_FIELD_MARGIN_LOSS: d_spacing exceeds d_nf_max, modal-decay-length tolerance, or roughness/vibration margin.
+
+FM_046_MATERIAL_SCREENING_INCOMPLETE: candidate material is promoted without survivability, transport, damping, host compatibility, and readout screening.
+
+
+FM_047: gain medium not declared
+FM_048: pump path not declared
+FM_049: feedback mechanism not declared
+FM_050: threshold condition not declared
+FM_051: laser output path blocked
+FM_052: pump heating exceeds useful optical output
+FM_053: thermal quenching prevents gain
+FM_054: random laser misclassified as stable cavity laser
+FM_055: polariton emission misclassified without coherence proof
+FM_056: thermal beacon worsens protected-zone heat burden
+FM_057: residual laser heat omitted from accounting
+FM_058: laser signal masks damage or thermal runaway
+FM_059: cavity deformation under pressure invalidates feedback
+FM_060: optical darkening suppresses output during cycling
+FM_061: gain dopant diffuses or reacts with host
+FM_062: laser emission record omits power, linewidth, pump, or threshold status
+FM_063_DUPLICATE_HEAT_ACCOUNTING: more than one normative heat-accounting formula set is active.
+FM_064_LASER_RESIDUAL_HEAT_UNDEBITED: internal laser residual heat is omitted from protected-zone accounting.
+FM_065_STALE_COP_TERM: active-pump COP uses an instantaneous or undefined q_net term.
+FM_066_READOUT_HEAT_AMBIGUITY: readout heat is not assigned to internal or external deposition location.
+FM_067_LASER_OUTPUT_TOO_LOW: laser threshold occurs but output power is below declared usable-output threshold.
+FM_068_MATERIAL_SCORE_UNDECLARED: material matrix is used without scoring or promotion rule.
+FM_069_TRUTH_CLASS_ABSENT: branch or claim is used without truth class.
+FM_070_READINESS_TAG_ABSENT: material family or construction is promoted without material-readiness tag.
+FM_071_REGIME_TAG_ABSENT: operating envelope is claimed without operating-regime tag.
+FM_072_CANDIDATE_BRANCH_OVERPROMOTED: candidate branch is presented as deployment-qualified before proof vector and screening gates pass.
+FM_073_THEORY_ONLY_BRANCH_OVERCLAIM: theory-only branch is used as an operating device claim.
+FM_074_REGIME_TRANSFER_ERROR: proof from one regime is applied to another regime without qualification.
+
+FM_075_COMPOSITION_UNDECLARED: material candidate is promoted without nominal formula, dopant, phase, geometry, or barrier declaration.
+FM_076_SUPPORTING_MATH_OUT_OF_SCOPE: equation is used outside declared geometry, optical band, pressure range, or temperature range.
+FM_077_MULTIROLE_MATERIAL_OVERPROMOTION: material passes one role but is promoted for another unqualified role.
+FM_078_SOURCE_BASIS_OVERGENERALIZED: source-supported mechanism is generalized to harsh deployment without qualification tag.
+
+# 12. SECURITY_CONSIDERATIONS
+Embedded witness materials can reveal component identity, operating history, overload exposure, or manufacturing provenance. Access to calibration tables and readout methods may therefore expose sensitive operational data.
+
+Security controls shall include:
+- calibration record integrity;
+- instrument-handness audit for signed response;
+- anti-substitution marking for active inclusions;
+- provenance records for material batches;
+- tamper detection for accessible optical windows or tags;
+- separation of public identifier response from protected diagnostic response where required.
+
+The material shall not be treated as a secure identity system unless its optical signature, placement, and calibration chain are protected against substitution.
+
+# 13. VALIDATION_CRITERIA
+VC_001_SECTION_COMPLETENESS: the document shall contain all fifteen STSF sections.
+
+VC_002_SOLID_STATE_REQUIREMENT: the active inclusion shall remain solid-state through the qualified operating envelope.
+
+VC_003_MATERIAL_IDENTITY: the active material and host material shall be identified.
+
+VC_004_OPERATING_ENVELOPE: qualified temperature, pressure, strain, and chemical environment shall be declared.
+
+VC_005_OPTICAL_MODE_DETECTION: at least one marker mode shall be resolvable above background.
+
+VC_006_CALIBRATION_CURVE: each inferred state variable shall have a calibration relation or shall be excluded from output.
+
+VC_007_UNCERTAINTY_BOUND: each accepted state estimate shall include an uncertainty bound.
+
+VC_008_TEMPERATURE_COMPENSATION: pressure or strain estimates shall include temperature compensation.
+
+VC_009_PRESSURE_STRAIN_SEPARATION: hydrostatic pressure and anisotropic strain shall be separated or bounded.
+
+VC_010_CYCLING_REPEATABILITY: the active inclusion shall be tested under representative thermal and pressure cycling.
+
+VC_011_CHEMICAL_COMPATIBILITY: host, barrier, and inclusion shall not react beyond accepted drift limits.
+
+VC_012_MECHANICAL_COMPATIBILITY: inclusion geometry shall not create an unacceptable structural flaw.
+
+VC_013_OPTICAL_PATH_SURVIVAL: the optical path shall survive the intended installation and environment.
+
+VC_014_SIGNED_RESPONSE_CALIBRATION: signed or chiral response shall require opposite-channel calibration.
+
+VC_015_DOMAIN_STABILITY: domain-state readout shall require demonstrated domain stability within the envelope.
+
+VC_016_HISTORY_MODE_VALIDATION: exposure-history claims shall require irreversible or hysteretic optical features.
+
+VC_017_REJECTION_LOGIC: the implementation shall reject measurements outside the qualified envelope.
+
+VC_018_IR_WAVELENGTH_QUALIFICATION: infrared operation shall declare the excitation lane and justify it against Raman efficiency, fluorescence, absorption, detector sensitivity, and optical-path survival.
+
+VC_019_IR_POWER_LIMIT: infrared operation shall demonstrate that laser-induced heating or damage remains below accepted thresholds.
+
+VC_020_IR_BACKGROUND_REJECTION: infrared operation shall reject or correct fluorescence, fiber background, thermal glow, host-window emission, and detector drift.
+
+VC_021_IR_REFERENCE_CHANNEL: high-temperature infrared operation shall include a reference channel or documented substitute drift-control method.
+
+VC_022_STOKES_ANTISTOKES_CALIBRATION: Stokes/anti-Stokes temperature use shall include the calibrated instrument factor and detector response correction.
+
+VC_023_TRACEABLE_OUTPUT: each output state vector shall retain measurement metadata, calibration version, excitation wavelength, optical path identifier, and quality flag.
+
+
+VC_024_HEAT_SINK_DECLARATION: heat-extraction operation shall declare the heat sink, radiator, converter, coolant interface, or pump dump.
+
+VC_025_CARRIER_IDENTIFICATION: heat movement shall identify the dominant carrier and shall not use generic energy-transfer language as a substitute.
+
+VC_026_PASSIVE_GRADIENT_OR_WORK_INPUT: passive operation shall show T_hot > T_cold, and active heat pumping shall declare W_in and COP.
+
+VC_027_HEAT_FLUX_MEASUREMENT: q_in, q_exported, Delta_T_protected, eta_heat_passive, heat_burden_coverage, and saturation threshold shall be measured or bounded.
+
+VC_028_SPECTRAL_MODE_QUALIFICATION: each spectral mode shall declare source band, coupling mechanism, carrier, transport distance, loss path, sink, readout, and saturation mode.
+
+VC_029_POLARITON_MODE_QUALIFICATION: phonon-polariton heat-highway claims shall identify material, infrared-active mode, coupling band, damping limit, and path geometry.
+
+VC_030_HEAT_PATH_READOUT: heat-extraction paths shall include a direct or indirect readout method for path integrity and saturation state.
+
+
+VC_031_FIELD_BAND_DECLARATION: field-assisted operation shall declare RF, microwave, terahertz, infrared, near-field electromagnetic, magnetic, or photonic band.
+
+VC_032_FIELD_CARRIER_IDENTIFICATION: field-assisted operation shall identify the coupled carrier and reject generic field-effect language as a substitute.
+
+VC_033_FIELD_ACTIVE_PASSIVE_STATUS: each field-assisted mode shall declare passive, driven-control, or active-pump status.
+
+VC_034_FIELD_NET_HEAT_REMOVAL: field-assisted cooling shall measure or bound q_removed_hot_side, q_exported, q_parasitic_internal, q_parasitic_external, q_storage_release, q_net_protected_sustained, heat_burden_coverage, and Delta_T_protected.
+
+VC_035_NEAR_FIELD_SPACING_QUALIFICATION: near-field operation shall qualify spacing, surface condition, vibration tolerance, and contact-collapse rejection.
+
+VC_036_MAGNONIC_PHASE_QUALIFICATION: magnon-assisted operation shall demonstrate magnetic phase stability and separate magnon response from ordinary heating.
+
+VC_037_TIME_MODULATED_WORK_INPUT: time-modulated photonic heat pumping shall declare work input, bounded modulation law, A_mod, f_mod, D_mod, q_drive_heat, heat sink, receiver dump, q_net_protected_sustained, heat_burden_coverage, Delta_T_protected, and COP or equivalent net-removal measure.
+
+VC_038_QUANTUM_THERMAL_CHANNEL_BOUNDARY: fluctuation-mediated quantum thermal channels shall identify material bodies, coupling geometry, temperature conditions, and measured or bounded heat flux.
+
+
+VC_039_BASELINE_COMPARISON: heat-extraction and field-assisted cooling claims shall compare active operation against the unmodified host baseline.
+
+VC_040_FIELD_MODE_CLASSIFICATION: every field-assisted mode shall be classified as SUPPORT_CONTROL, PASSIVE_TRANSPORT, CONVERSION, ACTIVE_CONTROL, ACTIVE_PUMP_CANDIDATE, or ACTIVE_PUMP.
+
+VC_041_TPV_RESIDUAL_HEAT_DUMP: thermophotovoltaic or receiver-conversion operation shall declare residual heat path and reject receiver back-heating of the protected region.
+
+VC_042_MAGNONIC_STABILITY_MARGIN: magnon-assisted operation shall declare magnetic phase stability margin across temperature, pressure, and field exposure.
+
+
+VC_043_CONTROL_VOLUME_DEFINITION: heat-extraction operation shall define CV_protected, A_boundary, V_protected, measurement points, and averaging interval.
+
+VC_044_CLOSED_HEAT_BALANCE: heat-removal claims shall report q_source, q_boundary_out, q_exported, q_stored, dU_dt, and error bounds sufficient to close the protected control-volume balance.
+
+VC_045_TRANSIENT_STORAGE_REJECTION: transient operation shall reject protected-zone cooling claims when q_stored, dU_dt, or q_storage_release explains the observed temperature reduction without verified sustained export or dump.
+
+VC_046_SPLIT_COP_REPORTING: active heat-pump claims shall report COP_protected and COP_device, or explain why one is outside scope.
+
+VC_047_BASELINE_EQUIVALENCE: baseline and active trials shall match geometry, heat load, sink condition, ambient condition, pressure state, strain state, measurement locations, and time window.
+
+VC_048_NEAR_FIELD_MARGIN: near-field operation shall report d_spacing, d_spacing_worst, d_nf_max, M_nf, M_nf_worst, roughness bound, vibration bound, thermal-expansion bound, pressure-deformation bound, and reject noncontact near-field claims when M_nf <= 0 or M_nf_worst <= 0.
+
+VC_049_READOUT_PARASITIC_ACCOUNTING: readout-induced heating shall be measured or bounded and assigned to q_readout_internal or q_readout_external.
+
+VC_050_MATERIAL_HEAT_SCREENING: heat-extraction material candidates shall pass survivability, host compatibility, carrier support, damping, emissivity or optical response, and readout-compatibility screening before promotion.
+
+VC_051_HEAT_TERM_UNIT_TYPING: every heat-flow, stored-energy, efficiency, COP, spacing, frequency, and temperature term shall be unit-typed before a heat-extraction claim is accepted.
+
+VC_052_STORAGE_RELEASE_DEBIT: q_storage_release = max(-dU_dt,0) shall be calculated and debited from sustained protected-zone heat-removal claims.
+
+VC_053_HEAT_BURDEN_COVERAGE: heat_burden_coverage = q_net_protected_sustained / q_source shall be reported for protected-zone cooling claims.
+
+VC_054_TIME_MODULATION_STABILITY: time-modulated branches shall report A_mod, f_mod, D_mod, q_drive_heat, stability bound, and runaway/self-heating rejection status before ACTIVE_PUMP promotion.
+
+VC_055_TYPED_REPO_OUTPUTS: integration with other standards shall export thermal state, heat-path state, optical record, calibration record, material stack, and rejection state vectors.
+
+
+VC_056: Internal lasing claims require declared gain medium.
+VC_057: Internal lasing claims require declared pump path.
+VC_058: Internal lasing claims require declared feedback mechanism.
+VC_059: Internal lasing claims require declared threshold rule.
+VC_060: Internal lasing claims require declared output path.
+VC_061: Internal lasing claims require declared loss budget.
+VC_062: Internal lasing claims debit residual laser heat.
+VC_063: Thermal-assisted IR pump does not imply lasing by itself.
+VC_064: Random laser output is classified separately from cavity laser output.
+VC_065: Phonon-polariton coherent emission remains candidate until coherence and mode proof.
+VC_066: Laser output is not double-counted as removed heat.
+VC_067: LASER_EMISSION_RECORD contains pump, threshold, output, feedback, and rejection fields.
+VC_068: Sensing, heat extraction, heat pumping, field modulation, and internal lasing remain separated.
+VC_069_SINGLE_HEAT_ACCOUNTING_SOURCE: Section 7.15 shall be the single normative source for q_net_protected, q_net_protected_sustained, q_net_device, heat_burden_coverage, COP_protected, and COP_device.
+VC_070_LASER_RESIDUAL_HEAT_DEBIT: protected-zone heat accounting shall debit q_laser_residual_internal whenever internal lasing is active.
+VC_071_COP_SUSTAINED_TERM: COP_protected shall use q_net_protected_sustained, not an instantaneous or stale q_net term.
+VC_072_HEAT_VECTOR_COMPLETE: Y_heat shall include all heat terms used by the acceptance equations.
+VC_073_READOUT_HEAT_SPLIT: readout-induced heat shall be split into q_readout_internal and q_readout_external for acceptance accounting.
+VC_074_CONSERVATIVE_STORAGE_DEBIT: q_storage_transient_debit shall be declared when both storage accumulation and release are debited.
+VC_075_LASER_USEFUL_OUTPUT_GUARD: internal lasing acceptance shall require P_out_laser >= P_out_laser_min and residual heat below declared limits.
+VC_076_MATERIAL_SCORING_RULE: material promotion shall use M_score or an explicitly declared equivalent ranking rule.
+VC_077_TRUTH_CLASS_RECORD: each branch claim shall emit or inherit a TRUTH_CLASS_RECORD.
+VC_078_BRANCH_TRUTH_LABELS: supported physics, engineering rules, candidate branches, theory-only branches, material-qualification requirements, and rejection gates shall be distinguishable.
+VC_079_MATERIAL_READINESS_TAGS: material families shall be labeled PROVEN_BASIS, CANDIDATE, or DEPLOYMENT_QUALIFIED.
+VC_080_OPERATING_REGIME_TAGS: room-temperature, cryogenic, high-temperature, pressure, and deployment-qualified operating regimes shall be labeled separately.
+VC_081_CANDIDATE_PROMOTION_GATE: candidate branches shall not promote without proof vector, material screening, and operating-regime match.
+VC_082_REJECT_IF_UNPROVEN_GATE: REJECT_IF_UNPROVEN claims shall fail if the proof vector is absent or does not match the declared geometry, material, and regime.
+
+VC_083_MATERIAL_COMPOSITION_DECLARED: M_comp shall be complete before material promotion.
+VC_084_SUPPORTING_MATH_PRESENT: Section 7.21 shall define conduction, diffusion, radiation, attenuation, Raman thermometry, pressure/strain feature, near-field, laser threshold, COP, and material score equations.
+VC_085_MATERIAL_BRANCH_ASSIGNMENT: Section 7.22 shall assign preferred, candidate, and reject-first material families for each branch.
+VC_086_MULTIROLE_GATE: each multirole material shall pass separate role-specific qualification gates.
+VC_087_UNIT_TYPED_MATH: supporting math shall require unit typing and operating-envelope declaration.
+
+# 14. IMPLEMENTATION_GUIDELINES
+The preferred implementation path is:
+1. select a high-temperature, pressure-stable Raman-active oxide or ceramic candidate;
+2. measure its Raman modes across the target temperature envelope;
+3. measure its Raman modes across the target pressure envelope;
+4. test host-material chemical compatibility;
+5. define inclusion geometry with low host-weakening risk;
+6. test optical access through the intended barrier or window;
+7. select the infrared wavelength lane and detector class;
+8. measure fluorescence, thermal glow, fiber/window background, and host absorption;
+9. qualify maximum laser power and exposure time;
+10. build first-order calibration coefficients;
+11. perform thermal-pressure cycling;
+12. qualify rejection thresholds;
+13. embed into a noncritical host coupon;
+14. compare optical state estimates against external sensors;
+15. promote only the validated state variables into application use.
+
+Near-term project configurations:
+- fiber-tip witness coating for pressure or thermal exposure;
+- ceramic coating marker for hot-zone damage inspection;
+- embedded grain array for structural health coupons;
+- protected Raman patch for pressure vessel monitoring;
+- signed-domain optical tag for component provenance;
+- 1064 nm reduced-fluorescence Raman witness marker;
+- 1550 nm fiber-network optical health-check lane;
+- sapphire-window IR standoff probe for high-temperature surfaces;
+- Stokes/anti-Stokes thermal readout path paired with discrete pressure marker.
+
+
+Heat-extraction implementation path:
+1. identify protected hot zone and allowed maximum temperature;
+2. identify available cold-side dump, radiator, coolant interface, converter, or work-driven pump stage;
+3. choose passive or assisted heat-extraction mode;
+4. select carrier: phonon conduction, phonon-polariton transport, infrared radiation, or assisted thermophotonic/thermoelectric channel;
+5. select spectral lane, with mid-IR/far-IR prioritized for heat extraction;
+6. define pickup, transport, and dump geometry;
+7. measure heat flux, path loss, and saturation threshold;
+8. add optical or thermal path-readout channel;
+9. test under combined temperature, pressure, strain, and cycling;
+10. promote only measured heat-removal capacity into application use.
+
+Near-term heat-extraction project configurations:
+- SiC or sapphire-compatible thermal pickup coupon;
+- mid-IR radiative dump layer bonded to ceramic host;
+- phonon-polariton transport strip between hot spot and colder shell;
+- embedded heat-path witness read by near-IR Raman or mid-IR return;
+- damage-interruption heat-path coupon for crack/delamination detection;
+- passive heat highway paired with external radiator or coolant jacket;
+- assisted thermophotonic stage only where external work input and COP can be measured.
+
+Field-assisted implementation path:
+1. select the field-assisted branch: RF telemetry, microwave magnetic control, magnonic layer, near-field EM transfer, TPV conversion, or time-modulated photonic pump;
+2. declare field band, frequency, and source geometry;
+3. identify the coupled carrier and reject noncoupled field exposure;
+4. measure parasitic heating from the field source;
+5. measure q_removed from the protected region and all internal/external parasitic terms;
+6. compute q_net_protected and reject q_net_protected_sustained <= 0 for cooling claims;
+7. qualify spacing or magnetic phase stability when required;
+8. attach a heat sink, receiver, converter, radiator, coolant interface, or pump dump;
+9. test survivability under combined temperature, pressure, vibration, and cycling;
+10. promote only modes with measured carrier coupling and net benefit.
+
+Near-term field-assisted project configurations:
+- RF telemetry and modulation layer for embedded witness nodes;
+- microwave magnetic-resonance thermal-valve coupon;
+- magnonic spin-caloritronic thermal-state readout coupon;
+- near-field electromagnetic heat-transfer stack with controlled spacing;
+- phonon-polariton layer coupled to a mid-IR field source;
+- TPV receiver at the cold-side dump;
+- time-modulated photonic heat-pump bench article with explicit work input and heat-flux measurement.
+
+
+Material heat-extraction screening shall evaluate:
+1. maximum operating temperature and pressure margin;
+2. chemical compatibility with host and barrier;
+3. thermal conductivity and diffusivity;
+4. infrared-active phonon band or polariton support;
+5. emissivity and spectral selectivity when radiative dumping is used;
+6. damping under pressure, strain, and temperature;
+7. optical or Raman readout compatibility;
+8. manufacturable geometry for pickup, transport, and dump interfaces;
+9. degradation under cycling;
+10. failure consequence if the material cracks, reacts, or delaminates.
+
+Material selection priority shall be:
+1. survivability;
+2. host compatibility;
+3. repeatable calibration;
+4. optical readability;
+5. domain stability;
+6. signed or chiral enhancement;
+7. miniaturization.
+
+Minimum heat-extraction material qualification matrix:
+
+| Candidate family | Primary carrier | Heat role | Construction form | Qualification tests | Rejection trigger |
+| --- | --- | --- | --- | --- | --- |
+| SiC ceramic, film, or single-crystal insert | phonon conduction, mid-IR surface phonon-polariton, high-temperature optical support | hot-side pickup, transport strip, radiator-coupled layer, harsh-zone optical support | CVD film, sintered ceramic insert, polished window-adjacent wafer, coated fiber tip | thermal cycling, oxidation exposure, mid-IR response, interface thermal resistance, pressure-induced mode shift, optical darkening | oxidation or interface reaction exceeds allowance; mid-IR damping destroys carrier; crack growth blocks optical path |
+| AlN or ScAlN nitride | phonon conduction, piezoelectric/elastic coupling, IR-active phonon response | high-temperature transport layer, acoustic/thermal control layer, pressure/strain transduction layer | sputtered film, ceramic layer, bonded island, multilayer with barrier | thermal conductivity retention, dielectric loss under RF/microwave field, strain coefficient calibration, phase stability | dielectric heating dominates; film delaminates; phase drift changes calibration beyond bound |
+| Al2O3 / sapphire | phonon conduction, optical window, structural host, Raman support | window, substrate, pressure boundary, optical access layer, mechanically stable witness host | sapphire window, alumina ceramic coupon, fiber feedthrough support, thin protective cap | optical transmission, thermal shock, pressure cycling, Raman background, host compatibility | opacification, cracking, excessive fluorescence/background, inadequate heat export |
+| hBN / BN-family insert | hyperbolic phonon-polariton, phonon conduction, anisotropic IR mode | model polariton transport layer, thin embedded thermal bridge, near-field receiver layer | exfoliated or CVD flake, BN interlayer, protected laminated insert | Reststrahlen-band response, interface coupling, delamination test, oxidation barrier test, pressure compatibility | delamination; oxidation; pressure deformation destroys spacing; anisotropic layer cannot be aligned or protected |
+| diamond or diamond-like carbon | phonon conduction, optical window, Raman marker | heat spreader, Raman reference, high-conductivity cap, window-adjacent heat path | CVD diamond film, diamond window, DLC protective layer | thermal conductivity retention, Raman line stability, interface bonding, thermal expansion mismatch | graphitization, delamination, optical absorption growth, host mismatch cracking |
+| refractory oxide ceramic | phonon conduction, radiative IR, Raman marker | protective matrix, witness inclusion, thermal barrier-compatible marker | ZrO2-family, HfO2-family, MgO-family, rare-earth-stabilized oxide | phase stability, sintering compatibility, Raman detectability, oxygen activity, thermal cycling | phase transformation; chemical reaction; marker line too weak; thermal-barrier function defeated |
+| rare-earth oxide or doped ceramic | photoluminescence, selective emission, laser gain candidate | thermal marker, selective emitter, microcavity gain inclusion, threshold beacon | doped YAG/Y2O3/Lu2O3-style ceramic, oxide grain, microcavity island | concentration quenching, diffusion, pump absorption, emission linewidth, survivability, residual heat | quenching; dopant migration; host poisoning; output unstable after cycling |
+| magnetic insulator | magnon, spin-caloritronic response, microwave resonance | field-controlled thermal-state readout, thermal valve candidate, spin/heat transducer | garnet-like film, ferrite insert, protected magnetic layer | Curie/ordering margin, microwave loss, magnon response, pressure/temperature cycling | magnetic phase collapse; dielectric heating explains signal; field drift invalidates calibration |
+| thermophotovoltaic receiver layer | photon-to-electrical conversion, residual heat dump | receiver/converter coupled to thermal IR dump | protected semiconductor junction, external receiver, backside converter | spectral match, electrical output, receiver cooling, back-radiation, degradation | receiver back-heats protected zone; residual heat dump absent; conversion efficiency below burden threshold |
+| Raman laser marker medium | stimulated Raman scattering, optical output | internal laser beacon or signal amplifier | Raman-active crystal grain, waveguide strip, fiber-tip inclusion | pump threshold, Stokes output, linewidth, cavity/scattering feedback, residual heat | output below threshold; thermal quenching; residual heat exceeds allowable debit |
+
+Material screening vector:
+
+M_screen = {
+  material_family,
+  operating_temperature_range,
+  operating_pressure_range,
+  host_chemical_compatibility,
+  thermal_expansion_match,
+  carrier_type,
+  carrier_band,
+  damping_or_loss_coefficient,
+  survivability_margin,
+  optical_access_requirement,
+  readout_feature,
+  sink_or_dump_interface,
+  residual_heat_path,
+  calibration_method,
+  rejection_trigger
+}
+
+Promotion rule:
+A material family is not qualified by name. It is promoted only after M_screen is filled and the selected carrier, construction form, host compatibility, calibration path, and rejection trigger are all declared.
+
+Material acceptance and ranking score:
+
+M_score = w_surv*M_survivability + w_host*M_host_compatibility + w_carrier*M_carrier_support + w_loss*M_low_loss + w_readout*M_readout_quality + w_sink*M_sink_interface + w_cycle*M_cycling_stability
+
+where each M_* score is normalized from 0 to 1 and each w_* weight is declared for the application class. Default harsh-environment weighting is:
+- w_surv = 0.25;
+- w_host = 0.20;
+- w_carrier = 0.15;
+- w_loss = 0.15;
+- w_readout = 0.10;
+- w_sink = 0.10;
+- w_cycle = 0.05.
+
+Minimum promotion rule:
+- reject if M_survivability < 0.70;
+- reject if M_host_compatibility < 0.70;
+- reject if M_carrier_support < 0.60;
+- reject if M_sink_interface < 0.50 when heat extraction is claimed;
+- promote only if M_score >= 0.75 for deployment candidate status;
+- classify 0.60 <= M_score < 0.75 as research candidate;
+- classify M_score < 0.60 as rejected for the declared application.
+
+
+Minimum internal-lasing material qualification matrix:
+
+| Laser family | Candidate medium class | Pump class | Feedback class | Output band | Required proof | Rejection trigger |
+| --- | --- | --- | --- | --- | --- | --- |
+| Solid-state Raman laser | Raman-active oxide, diamond, nitride, or crystalline insert | external optical pump or guided near-IR/IR pump | mirror, waveguide resonance, distributed feedback, or qualified scattering path | shifted Stokes output | pump threshold, Stokes gain, output linewidth, residual heat, survivability | ordinary fluorescence or thermal glow explains output; residual heat not debited |
+| Random laser composite | gain-doped scattering ceramic or oxide composite | external optical pump, thermal-assisted optical pump, or protected internal pump | multiple scattering | broad or narrowed laser-like spectrum | threshold-like output, repeatability, angular/spectral envelope, gain material stability | no threshold behavior; scattering path changes irreversibly; output misrepresented as directional cavity laser |
+| Rare-earth ceramic microcavity | rare-earth-doped oxide or transparent ceramic | optical pump, diode pump, or thermal-assisted filtered pump | microcavity, resonant grain, or waveguide | visible, near-IR, or mid-IR depending dopant | gain/loss budget, cavity stability, quenching bound, pressure survivability | quenching, dopant diffusion, cavity deformation, host reaction |
+| Semiconductor or quantum-well gain layer | protected semiconductor heterostructure | electrical, optical, or near-field pump | waveguide, facet, distributed feedback, or microcavity | IR or THz/IR-adjacent output | work input, junction survivability, heat dump, optical coupling | thermal runaway; junction degradation; pressure breaks electrical/optical path |
+| Phonon-polariton coherent-emitter candidate | polar heterostructure, Reststrahlen-band structure, THz/IR polariton stack | electrical, optical, near-field, or thermal-assisted pump | polariton resonance or cavity coupling | THz/far-IR/mid-IR candidate output | coherence, mode identity, threshold, output coupling, residual heat | output is thermal emission only; coherence not proven; mode identity not proven |
+| Thermal-threshold optical beacon | doped ceramic, PL marker, random-laser marker, or Raman marker | host heat, filtered thermal IR, or external probe | optional cavity or scattering path | marker-dependent output | activation threshold, hysteresis, reset/retain behavior, no masking of damage | beacon worsens heat burden or hides thermal runaway |
+
+Typed repo interface outputs:
+- thermal_state_vector = {T_protected_base, T_protected_active, Delta_T_protected, q_source, q_net_protected_sustained, heat_burden_coverage, S_sat, survivability_margin};
+- heat_path_state_vector = {carrier_id, path_id, alpha_path, L_heat, q_exported, sink_id, H_path, baseline_equivalence_status};
+- optical_record_vector = {band_id, lambda_or_frequency, readout_id, feature_vector, q_readout_internal, q_readout_external, signal_quality, calibration_id};
+- calibration_record_vector = {baseline_id, calibration_curve_id, uncertainty_bounds, averaging_interval, pressure_state, strain_state, temperature_state};
+- material_stack_vector = {host_id, active_inclusion_id, transport_layer_id, barrier_id, coupling_layer_id, sink_interface_id, screening_status};
+- rejection_state_vector = {criterion_id, failed_term, measured_value, threshold_value, rejection_reason, safe_fallback_class}.
+
+
+Internal-lasing implementation should begin with externally pumped, optically readable coupons before any fully embedded harsh-zone laser is attempted.
+
+Preferred first candidates are:
+- Raman-active solid-state laser marker;
+- rare-earth-doped ceramic microcavity marker;
+- random-laser ceramic or composite damage beacon;
+- thermal-threshold optical beacon;
+- phonon-polariton coherent-emitter candidate only after heterostructure proof.
+
+A minimum internal-lasing test article should include:
+- substrate or ceramic coupon;
+- Raman-active or gain-doped inclusion;
+- optical pump path;
+- feedback or scattering path;
+- output collection path;
+- thermal-load control;
+- pressure or strain fixture;
+- residual-heat measurement.
+
+The test shall first prove threshold behavior and signal integrity. It shall not claim heat extraction until protected-zone thermal accounting passes the heat-extraction acceptance algorithm.
+
+
+Truth labeling shall be included in implementation reports. A report may cite a branch as supported physics only for the mechanism it actually demonstrates. It may not transfer that support to harsh embedded deployment without material screening, regime qualification, and construction proof.
+
+A deployment claim shall include at minimum:
+- TRUTH_CLASS_RECORD;
+- MATERIAL_READINESS_TAG;
+- OPERATING_REGIME_TAG;
+- M_screen or equivalent material proof vector;
+- heat, optical, or laser accounting vector as applicable;
+- rejection-state vector for any failed promotion gate.
+
+# 15. VERSIONING_POLICY
+VERSION 0.1.0 establishes the initial standard for high-pressure, high-temperature, solid-state embedded optical witness materials derived from the resonant chiral dressing mechanism template.
+
+VERSION 0.2.0 adds the infrared-laser operating branch, including infrared wavelength lanes, fiber/window/standoff delivery, IR readout vector, laser power and heating control, Stokes/anti-Stokes temperature model, IR operation modes, IR-specific failure modes, and IR validation criteria.
+
+VERSION 0.3.0 adds the repo relationship interface map, solid-state heat-extraction branch, spectral heat-extraction model, passive/assisted heat modes, phonon-polariton heat-highway logic, thermal-infrared radiative dump logic, heat-path readout, heat-transport vectors, heat-specific failure modes, and heat-specific validation criteria.
+
+VERSION 0.4.0 adds the field-assisted heat-transport branch, including RF telemetry and modulation, microwave magnetic-resonance control, magnon-assisted heat/spin transport, near-field electromagnetic heat transfer, phonon-polariton electromagnetic coupling, thermophotovoltaic receiver conversion, time-modulated photonic heat pumping, fluctuation-mediated quantum thermal channels, near-field spacing controls, field-specific data vectors, field-specific failure modes, and field-specific validation criteria.
+
+
+VERSION 0.5.0 tightens the field-assisted branch, corrects section ordering, adds protected-zone cooling metrics, splits protected and device heat accounting, classifies field modes, and adds near-field, TPV, magnonic, and time-modulated constraints.
+
+VERSION 0.6.0 closes the heat-pump accounting model by defining protected control volume, transient storage rejection, split COP reporting, near-field spacing margins, baseline equivalence, readout parasitic accounting, material heat-extraction screening, and additional validation criteria.
+
+Revision discipline shall preserve the distinction between:
+- theory mechanism;
+- construction requirements;
+- operational readout;
+- material qualification;
+- application-specific calibration.
+
+Version increments shall follow:
+- patch version for wording, notation, and validation corrections;
+- minor version for new material families, interface rules, or validation criteria;
+- major version for incompatible changes to the device class or operating model.
+
+This document is standalone and shall not import low-temperature charge-density-wave behavior as a deployment requirement.
+
+VERSION 0.7.0 adds storage-release debit, sustained heat-burden coverage, heat-term unit typing, ACTIVE_PUMP_CANDIDATE validation consistency, worst-case near-field spacing margin, bounded time-modulation stability terms, material candidate matrix, and typed repo interface output vectors.
+
+
+VERSION 0.8.0 adds the optional internal-lasing operation branch, including gain medium, pump path, feedback mechanism, threshold rule, laser emission record, residual laser heat accounting, Raman laser mode, random laser mode, rare-earth ceramic microcavity mode, semiconductor or quantum-well gain-layer mode, phonon-polariton coherent-emitter candidate mode, thermal-threshold optical beacon mode, internal-lasing failure modes, and validation criteria.
+
+VERSION 0.9.0 fills previously thin material content by expanding the heat-extraction material qualification matrix, adding a filled internal-lasing material qualification matrix, adding the material screening vector, replacing generic candidate promotion with explicit promotion rules, and repairing duplicate Section 8 subsection numbering introduced by branch insertion.
+
+VERSION 0.10.0 consolidates heat accounting under Section 7.15, updates Y_heat, normalizes readout heat terms, debits internal laser residual heat, corrects COP_protected to use q_net_protected_sustained, adds laser usable-output and residual-heat guards, adds material scoring, and expands failure/validation coverage.
+
+VERSION 0.11.0 adds truth-class labels, material-readiness tags, operating-regime tags, TRUTH_CLASS_RECORD, Y_truth, candidate/theory branch guards, regime-transfer guards, and validation criteria that separate supported physics from engineering rules and deployment-qualified device claims.
+VERSION 0.12.0 adds expanded material and composition families, M_comp, material branch assignment, supporting heat/optical/laser math, multirole material gates, and validation requirements for unit-typed supporting equations.
