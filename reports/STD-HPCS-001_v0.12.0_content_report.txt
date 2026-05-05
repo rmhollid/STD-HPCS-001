@@ -1,0 +1,56 @@
+STD-HPCS-001_v0.12.0 CONTENT REPORT
+
+STATUS: VALIDATED_WITH_PROJECT_TOOLKIT
+
+STRUCTURE:
+- Sections: 15 / 15
+- Section order: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+- Subsections: 66
+- Duplicate subsection numbers: 0
+
+COUNTS:
+- Material code occurrences: 15
+- New composition-family rows: 15
+- Requirements: 10
+- Failure modes: 78
+- Validation criteria: 87
+- Scanner markers: {"GAP": 0, "INVENT": 0, "MISSING": 0, "PLACEHOLDER": 0, "SPECULATIVE": 0, "STUB": 0, "TBD": 0, "TODO": 0, "UNKNOWN": 0, "UNRESOLVED": 0}
+
+MATERIAL ADDITIONS:
+- SiC / silicon carbide
+- hBN / boron nitride
+- AlN / ScAlN
+- Al2O3 / sapphire / alumina
+- diamond / DLC
+- YSZ / yttria-stabilized zirconia
+- HfO2 / ZrO2 refractory oxides
+- MgO / MgAl2O4 spinel
+- rare-earth doped YAG
+- rare-earth doped Y2O3 / Lu2O3 / Sc2O3 transparent ceramics
+- YIG / ferrite / garnet magnetic insulators
+- TPV receiver materials
+- phase-change spectral materials
+- graphite / carbon-carbon / graphitic interlayers
+- refractory metals W / Mo / Ta / Re
+
+SUPPORTING MATH ADDED:
+{
+  "COP_protected =": true,
+  "Delta_nu_i =": true,
+  "I_AS/I_S =": true,
+  "I_out =": true,
+  "L_prop =": true,
+  "M_score =": true,
+  "Q_mode =": true,
+  "R_th =": true,
+  "alpha_th =": true,
+  "eta_transport =": true,
+  "q_cond =": true,
+  "q_rad =": true,
+  "q_rad_band =": true,
+  "tau_diff =": true
+}
+
+VALIDATION:
+- Project toolkit validation: VALID / COMPLIANT / STRUCTURALLY_ACCEPTED / EXACT_VERSION
+- Canonical hash: ec1078dda903ff2d53d421c7aaf96ca37ebec308ffc2a8bf1b5a1346d3e88746
