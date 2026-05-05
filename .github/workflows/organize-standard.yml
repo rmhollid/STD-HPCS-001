@@ -1,0 +1,35 @@
+name: Organize standard file
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  move-standard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Move standard into standards folder
+        run: |
+          set -euo pipefail
+          mkdir -p standards validation reports
+          if [ -f "STD-HPCS-001_v0.12.0.txt" ]; then
+            git mv "STD-HPCS-001_v0.12.0.txt" "standards/STD-HPCS-001_v0.12.0.txt"
+          fi
+          if ! git diff --cached --quiet || ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Move STD-HPCS v0.12.0 into standards folder"
+            git push
+          else
+            echo "No standard-file move needed."
+          fi
