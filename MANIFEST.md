@@ -2,18 +2,16 @@
 
 ## Latest validated local revision
 
-`STD-HPCS-001_v0.11.0`
+`STD-HPCS-001_v0.12.0`
 
 ## Local artifact set
 
 | Path target | Artifact | Status |
 | --- | --- | --- |
-| `standards/` | `STD-HPCS-001_v0.11.0.txt` | generated locally, validated |
-| `validation/` | `STD-HPCS-001_v0.11.0_validation.log` | generated locally |
-| `validation/` | `STD-HPCS-001_v0.11.0_canonical.log` | generated locally |
-| `reports/` | `STD-HPCS-001_v0.11.0_solution_report.txt` | generated locally |
-| `reports/` | `STD-HPCS-001_v0.11.0_content_report.txt` | generated locally |
-| `reports/` | `STD-HPCS-001_v0.10.0_truth_verification_report.txt` | generated locally |
+| `standards/` | `STD-HPCS-001_v0.12.0.txt` | generated locally, validated |
+| `validation/` | `STD-HPCS-001_v0.12.0_validation.log` | generated locally |
+| `validation/` | `STD-HPCS-001_v0.12.0_canonical.log` | generated locally |
+| `reports/` | `STD-HPCS-001_v0.12.0_content_report.txt` | generated locally |
 
 ## Validation record
 
@@ -22,12 +20,30 @@ VALID
 COMPLIANT
 STRUCTURALLY_ACCEPTED
 EXACT_VERSION
-canonical_hash = dcf530de31330b6296aae1b9b8b771c6838e0858446c09c8411e1910a4ae72eb
+canonical_hash = ec1078dda903ff2d53d421c7aaf96ca37ebec308ffc2a8bf1b5a1346d3e88746
 ```
 
-## Current repository state
+## v0.12.0 expansion
 
-This repo now contains metadata and structure for the standard. The full validated standard file remains in the local sandbox until it is committed or uploaded into `standards/`.
+`v0.12.0` expands material/composition families and supporting math while preserving truth-class and readiness gates.
+
+Material/composition families include:
+
+- SiC / silicon carbide
+- hBN / boron nitride
+- AlN / ScAlN
+- Al2O3 / sapphire / alumina
+- diamond / DLC
+- YSZ / yttria-stabilized zirconia
+- HfO2 / ZrO2 refractory oxides
+- MgO / MgAl2O4 spinel
+- rare-earth-doped YAG
+- rare-earth-doped Y2O3 / Lu2O3 / Sc2O3 transparent ceramics
+- YIG / ferrite / garnet magnetic insulators
+- TPV receiver materials
+- phase-change spectral materials
+- graphite / carbon-carbon / graphitic interlayers
+- refractory metals W / Mo / Ta / Re
 
 ## Intended directory layout
 
@@ -36,8 +52,12 @@ This repo now contains metadata and structure for the standard. The full validat
 ├── README.md
 ├── MANIFEST.md
 ├── standards/
+│   └── STD-HPCS-001_v0.12.0.txt
 ├── validation/
+│   ├── STD-HPCS-001_v0.12.0_validation.log
+│   └── STD-HPCS-001_v0.12.0_canonical.log
 └── reports/
+    └── STD-HPCS-001_v0.12.0_content_report.txt
 ```
 
 ## Scope lock
