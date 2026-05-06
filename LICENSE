@@ -1,11 +1,9 @@
-PolyForm Noncommercial License 1.0.0
+PolyForm Strict License 1.0.0
 
-SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
-License URL: https://polyformproject.org/licenses/noncommercial/1.0.0
+https://polyformproject.org/licenses/strict/1.0.0
 
-Project licensing intent:
-- Noncommercial use is permitted under PolyForm Noncommercial License 1.0.0.
-- Commercial use, sale, paid hosting, resale, commercial integration, or other money-making use requires separate written permission from the copyright holder.
-- Prior copies that were already distributed under MIT may remain governed by the MIT terms that accompanied those prior copies; this file applies to this repository going forward.
+SPDX-License-Identifier: PolyForm-Strict-1.0.0
 
-Required Notice: Copyright (c) 2026 Robert Holliday. All rights reserved except as expressly granted by PolyForm Noncommercial License 1.0.0 or separate written permission.
+This repository is licensed under the PolyForm Strict License 1.0.0.
+
+Required Notice: Copyright (c) 2026 Robert Holliday. All rights reserved except as expressly granted by PolyForm Strict License 1.0.0 or separate written permission.
