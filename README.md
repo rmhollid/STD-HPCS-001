@@ -4,9 +4,9 @@ High-Pressure / High-Temperature Chiral Solid-State Embedded Sensor
 
 ## Current working standard
 
-Latest validated local revision: `STD-HPCS-001_v0.12.0.txt`
+Latest validated local revision: `STD-HPCS-001_v0.16.2.txt`
 
-Purpose: define a harsh-environment, solid-state embedded material standard for optical witness behavior, thermal-state readout, heat-path verification, field-assisted heat transport, optional internal-lasing subsystems, and material/composition qualification.
+Purpose: define a harsh-environment, solid-state embedded material standard for optical witness behavior, thermal-state readout, heat-path verification, field-assisted heat transport, optional internal-lasing subsystems, material/composition qualification, virtual-cavity/trap-storage candidate handling, and CTI proof/disproof tracking.
 
 ## Scope
 
@@ -19,7 +19,8 @@ The current standard separates:
 - candidate device branches
 - theory-only branches
 - material qualification requirements
-- rejection gates
+- proof/disproof status within declared test envelopes
+- CTI-assisted claim evaluation
 
 ## Major branches
 
@@ -35,15 +36,19 @@ The current standard separates:
 - truth-class / material-readiness / operating-regime tagging
 - expanded material/composition families
 - supporting heat, transport, readout, and lasing math
+- prototype ladders and build packages
+- virtual optical cavity models
+- thermal-mode trap storage candidates
+- CTI HPCS proof records
 
 ## Current validated artifacts
 
 The current local validated artifacts are:
 
-- `STD-HPCS-001_v0.12.0.txt`
-- `STD-HPCS-001_v0.12.0_validation.log`
-- `STD-HPCS-001_v0.12.0_canonical.log`
-- `STD-HPCS-001_v0.12.0_content_report.txt`
+- `STD-HPCS-001_v0.16.2.txt`
+- `STD-HPCS-001_v0.16.2_validation.log`
+- `STD-HPCS-001_v0.16.2_canonical.log`
+- `STD-HPCS-001_v0.16.2_content_report.txt`
 
 ## Validation status
 
@@ -57,38 +62,32 @@ Latest local toolkit result:
 Canonical hash:
 
 ```text
-ec1078dda903ff2d53d421c7aaf96ca37ebec308ffc2a8bf1b5a1346d3e88746
+44939a890b6fa71026e9d3038ffb16d22c5d55ddf13cf9fd3d2fafc985271565
 ```
 
-## Material/composition families added in v0.12.0
+## Proof posture
 
-- SiC / silicon carbide
-- hBN / boron nitride
-- AlN / ScAlN
-- Al2O3 / sapphire / alumina
-- diamond / DLC
-- YSZ / yttria-stabilized zirconia
-- HfO2 / ZrO2 refractory oxides
-- MgO / MgAl2O4 spinel
-- rare-earth-doped YAG
-- rare-earth-doped Y2O3 / Lu2O3 / Sc2O3 transparent ceramics
-- YIG / ferrite / garnet magnetic insulators
-- TPV receiver materials
-- phase-change spectral materials
-- graphite / carbon-carbon / graphitic interlayers
-- refractory metals W / Mo / Ta / Re
+The project does not delete candidate branches merely because they are unproven. Claims are classified as:
+
+- `UNPROVEN`
+- `PROVEN_IN_TEST_ENVELOPE`
+- `DISPROVEN_IN_TEST_ENVELOPE`
+- `INDETERMINATE`
+- `NEEDS_DISCRIMINATING_TEST`
+
+Disproof is bounded to the declared material, geometry, operating regime, measurement method, baseline, and uncertainty envelope.
 
 ## Repository intent
 
 This repo should contain:
 
 ```text
-standards/STD-HPCS-001_v0.12.0.txt
-validation/STD-HPCS-001_v0.12.0_validation.log
-validation/STD-HPCS-001_v0.12.0_canonical.log
-reports/STD-HPCS-001_v0.12.0_content_report.txt
+standards/STD-HPCS-001_v0.16.2.txt
+validation/STD-HPCS-001_v0.16.2_validation.log
+validation/STD-HPCS-001_v0.16.2_canonical.log
+reports/STD-HPCS-001_v0.16.2_content_report.txt
 ```
 
 ## Guardrail
 
-No branch may claim heat extraction, heat pumping, or internal lasing unless the standard identifies the source, carrier, sink or dump, work input when required, loss path, residual heat, saturation behavior, and validation/rejection rule.
+No branch may claim heat extraction, heat pumping, internal lasing, virtual-cavity storage, or trap-storage battery behavior unless the standard identifies the source, carrier, storage state where applicable, sink or dump, work input when required, loss path, residual heat, saturation behavior, test envelope, and proof/disproof rule.
