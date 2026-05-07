@@ -1,0 +1,41 @@
+STD-HPCS-001_v0.16.2 CONTENT REPORT
+
+STATUS: VALIDATED_WITH_PROJECT_TOOLKIT
+
+VERSION:
+- Identifier: STD-HPCS-001
+- Version: 0.16.2
+- File: STD-HPCS-001_v0.16.2.txt
+
+VALIDATION:
+- VALID
+- COMPLIANT
+- STRUCTURALLY_ACCEPTED
+- EXACT_VERSION
+- Canonical hash: 44939a890b6fa71026e9d3038ffb16d22c5d55ddf13cf9fd3d2fafc985271565
+
+KEY CHANGE:
+- Replaced deletion/rejection posture with proof/disproof posture.
+- Added CTI_HPCS_PROOF_RECORD.
+- Added CTI_HPCS_PROOF_STATUS_ALGORITHM.
+- Preserved candidate branches.
+- Bounded disproof to material, geometry, operating regime, measurement method, baseline, and uncertainty envelope.
+
+CLAIM STATUS TERMS:
+- UNPROVEN
+- PROVEN_IN_TEST_ENVELOPE
+- DISPROVEN_IN_TEST_ENVELOPE
+- INDETERMINATE
+- NEEDS_DISCRIMINATING_TEST
+
+SCANNER MARKERS:
+- TODO: 0
+- TBD: 0
+- PLACEHOLDER: 0
+- UNKNOWN: 0
+- MISSING: 0
+- GAP: 0
+- UNRESOLVED: 0
+- INVENT: 0
+- SPECULATIVE: 0
+- STUB: 0
