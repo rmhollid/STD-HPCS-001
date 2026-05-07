@@ -18,17 +18,25 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Move standard into standards folder
+      - name: Move standard files into standards folder
         run: |
           set -euo pipefail
           mkdir -p standards validation reports
-          if [ -f "STD-HPCS-001_v0.12.0.txt" ]; then
-            git mv "STD-HPCS-001_v0.12.0.txt" "standards/STD-HPCS-001_v0.12.0.txt"
-          fi
-          if ! git diff --cached --quiet || ! git diff --quiet; then
+
+          moved=0
+          for version in 0.12.0 0.13.0 0.14.0 0.15.0 0.16.1 0.16.2; do
+            src="STD-HPCS-001_v${version}.txt"
+            dst="standards/STD-HPCS-001_v${version}.txt"
+            if [ -f "$src" ]; then
+              git mv "$src" "$dst"
+              moved=1
+            fi
+          done
+
+          if [ "$moved" -eq 1 ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "Move STD-HPCS v0.12.0 into standards folder"
+            git commit -m "Move STD-HPCS standard files into standards folder"
             git push
           else
             echo "No standard-file move needed."
